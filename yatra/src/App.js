@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { RightSection } from './Components/Homepage/RightSection/RightSection';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header" style={{ width: "100vw", height: "70px", textAlign: "left", left: "0", position: "fixed", zIndex: "1", backgroundColor: "lightpink" }}>Navbar</div>
+      <div className="body" style={{ display: 'flex', backgroundColor: "lightgray", maxWidth: "1440px" }}>
+        <div className="LeftSection" style={{ width: "45%", marginTop: "70px", backgroundColor: "gray", height: "100vh" }}>LeftSection</div>
+        <RightSection />
+      </div>
     </div>
   );
 }
