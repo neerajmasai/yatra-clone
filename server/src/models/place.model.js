@@ -7,10 +7,9 @@ const { Schema } = mongoose;
 const placeSchema = new Schema({
 
     placeName: { type: String, required: true },
+    airportName: { type: String, required: false },
     placeCode: { type: String, required: true },
-    airportName: { type: String, required: true },
     countryName: { type: String, required: true },
-    countryLogo: { type: String, required: false },
     apiCode: { type: String, required: false },
 
 
