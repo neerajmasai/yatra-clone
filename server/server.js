@@ -25,6 +25,8 @@ mongoose.connection.on("connected", (err, res) => {
 const productController = require("./src/controllers/product.controller.js");
 const userController = require("./src/controllers/user.controller.js");
 const transactionController = require("./src/controllers/transaction.controller.js");
+const placeController = require("./src/controllers/place.controller.js");
 app.use("/products", productController);
 app.use("/users", userController);
 app.use("/transactions", transactionController);
+app.use("/places", placeController);
