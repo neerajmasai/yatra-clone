@@ -13,7 +13,6 @@ const User = require("../models/user.model.js");
 router.get("/", async (request, response) => {
     try {
         const results = await User.find().lean().exec();
-        console.log(results);
         return response.send(results);
     }
     catch (err) {
