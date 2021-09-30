@@ -1,0 +1,150 @@
+.MainHeader{
+    
+    width:100vw;
+    
+    border:0px lightgrey solid;
+    padding:7px 0px;
+    box-shadow: 0px 2px 5px lightgrey;
+    position: fixed;
+    
+    top:0px;
+   height: 50px;
+   
+   
+    
+}
+
+
+
+.header{
+    width:65%;
+    margin:0 auto;
+    
+    display:flex ;
+    /* justify-content: space-between; */
+    
+    
+}
+
+.AppLogo{
+    height: 39.5px;
+    width: 10%;
+    display: inline-block;
+    background: url(//www.yatra.com/fresco/resources/beetle/images/newIcons/yatra_logo.svg)no-repeat;
+    background-size: 88px 39.5px;
+    
+ 
+}
+.IconsAndTextWraper{
+    display:flex ;
+    width:50%;
+    justify-content:space-evenly;
+     color:rgb(102,102,102);
+     font-family: sans-serif;
+     margin-right: 10%;
+    
+
+}
+.IconsAndText{
+       
+        cursor: pointer;
+        /* margin-right: 10px; */
+        
+        /* margin: auto; */
+        
+}
+.IconsAndText:hover{
+    color:rgb(234,35,48);
+    
+}
+.Icons{
+       font-size: 1.1em !important
+}
+.Text{
+    font-size: 13px;
+}
+.MoreIconsAndText{
+    font-size:13px;
+    position: relative;
+    top: 10px;
+    border: 1px solid gray;
+    width:50px;
+    height:20px;
+    padding-top: 6.5px;
+    padding-bottom: 2px;
+    border-radius: 13px;
+    cursor:pointer;
+}
+.MoreIconsAndText:hover{
+    
+    background:rgb(234,35,48);
+    color:whitesmoke 
+    /* opacity:0; */
+}
+.OtherInformationWrapper{
+    /* margin-left: 10%; */
+    width:30%;
+    display:flex;
+    justify-content: space-evenly;
+    padding-top: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    
+}
+.OtherInformation{
+    position: relative;
+    top:10px
+}
+.ArrowDown{
+    position:relative;
+   
+    top: 8px;
+}
+
+.SubMenu1{
+    display:none;
+
+}
+.MoreIconsAndText:hover .SubMenu1{
+display: block;
+color:black;
+position: absolute;
+right:-50px;
+top:30px;
+width:150px;
+background:rgb(255, 254, 254);
+border:1px solid lightgrey;
+border-radius: 5px;
+padding: 5px;
+box-shadow: 0px 2px 5px lightgrey;
+text-align: center;
+
+}
+.MoreIconsAndText:hover .SubMenu1 .ListItems{
+    list-style-type: none;
+    display: flex;
+    /* justify-content: space-evenly; */
+    padding-left:4px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* padding; */
+}
+.MoreIconsAndText:hover .SubMenu1 .ListItems:hover{
+    
+    color:rgb(234,35,48)
+}
+
+.MoreIconsAndText:hover .SubMenu1 .ListItems .Labels{
+    /* padding-left: 0px; */
+}
+
+
+.AccountInfo{
+    display:none;
+}
+.MyAccountWrapper:hover .AccountInfo {
+    display:block !important;  
+    color:black;
+    position: absolute;
+}
