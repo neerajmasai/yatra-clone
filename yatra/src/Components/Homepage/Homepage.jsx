@@ -13,7 +13,7 @@ const Homepage =()=>{
             </StyledNavbar>
       
             <StyledHomepageBody>
-        
+
                 <StyledLeftSection>
                     <Leftsection/>
                 </StyledLeftSection>

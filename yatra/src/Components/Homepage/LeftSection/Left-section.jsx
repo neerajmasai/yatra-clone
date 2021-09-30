@@ -1,9 +1,14 @@
+import React from "react";
 import styles from './Css/Left-section.module.css'
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
+import DateFnsUtils from '@date-io/date-fns'; // choose your lib
+import { DatePicker, TimePicker, DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import {YatraDatePicker} from "./../../Utility/YatraDatePicker";
 
 function Leftsection (){
+    const [selectedDate, handleDateChange] = React.useState(new Date());
 
-    return(
+    return (
         <>
         <div className={styles.leftSection} >
             <div className={styles.box}>
@@ -34,12 +39,14 @@ function Leftsection (){
                         <label style={{fontSize:"14px",color:"#A19F9D"}}>Departure Date</label>
                         <div style={{fontSize:"18px",fontWeight:"700"}}>4 Oct' 21</div>
                         <label>Monday</label>
-                        <input type="date"/>
+                        {/* <input type="date"/> */}
+                        <YatraDatePicker />
                     </div>
                     <div className={styles.retDate} >
                         <div style={{fontSize:"14px",color:"#A19F9D"}}>  Return date</div>
                         <div className={styles.bookRound}>Book Round Trip to save extra</div>
-                        <input type="date"/>
+                        {/* <input type="date"/> */}
+                        <YatraDatePicker />
                     </div>
                 </div>
                 <div className={styles.trav}>
