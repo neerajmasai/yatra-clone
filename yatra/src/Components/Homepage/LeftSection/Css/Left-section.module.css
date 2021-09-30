@@ -154,3 +154,11 @@
 .button img{
     color: white;
 }
+
+@media all and (max-width: 900px) {
+    .leftSection {
+        position: static;
+        margin: auto;
+        height: max-content;
+    } 
+}
