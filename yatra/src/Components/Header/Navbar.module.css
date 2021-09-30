@@ -1,150 +1,174 @@
-.MainHeader{
-    
-    width:100vw;
-    
-    border:0px lightgrey solid;
-    padding:7px 0px;
+.MainHeader {
+    width: 100vw;
+    height: 70px;
+    text-align: left;
+    left: 0px;
+    position: fixed;
+    z-index: 1;
+    /* background-color: lightpink; */
+    border: 0px;
+    outline: 0px;
     box-shadow: 0px 2px 5px lightgrey;
     position: fixed;
-    
-    top:0px;
-   height: 50px;
-   
-   
-    
-}
-
-
-
-.header{
-    width:65%;
-    margin:0 auto;
-    
-    display:flex ;
-    /* justify-content: space-between; */
-    
-    
-}
-
-.AppLogo{
+    top: 0;
+  }
+  
+  .header {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: palegreen; */
+    height: 70px;
+    justify-content: space-between;
+  }
+  
+  .AppLogo {
     height: 39.5px;
     width: 10%;
     display: inline-block;
-    background: url(//www.yatra.com/fresco/resources/beetle/images/newIcons/yatra_logo.svg)no-repeat;
+    background: url(//www.yatra.com/fresco/resources/beetle/images/newIcons/yatra_logo.svg)
+      no-repeat;
     background-size: 88px 39.5px;
-    
- 
-}
-.IconsAndTextWraper{
-    display:flex ;
-    width:50%;
-    justify-content:space-evenly;
-     color:rgb(102,102,102);
-     font-family: sans-serif;
-     margin-right: 10%;
-    
-
-}
-.IconsAndText{
-       
-        cursor: pointer;
-        /* margin-right: 10px; */
-        
-        /* margin: auto; */
-        
-}
-.IconsAndText:hover{
-    color:rgb(234,35,48);
-    
-}
-.Icons{
-       font-size: 1.1em !important
-}
-.Text{
+  }
+  .IconsAndTextWraper {
+    display: flex;
+    align-items: center;
+    /* width: 50%; */
+    width: 500px;
+    height: 100%;
+    /* background-color: orange; */
+    justify-content: space-between;
+    color: rgb(102, 102, 102);
+    font-family: sans-serif;
+    /* margin-right: 10%; */
+  }
+  
+  .IconsAndText {
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 10px; */
+  
+    /* margin: auto; */
+  }
+  .IconsAndText:hover,
+  .IconsAndText:active {
+    color: #f34f4f;
+    box-shadow: inset 0 -5px #f34f4f;
+  }
+  .Icons {
+    font-size: 1.1em !important;
+  }
+  .Text {
     font-size: 13px;
-}
-.MoreIconsAndText{
-    font-size:13px;
+  }
+  .MoreIconsAndText {
+    font-size: 13px;
     position: relative;
-    top: 10px;
+    display: flex;
+    align-items: center;
     border: 1px solid gray;
-    width:50px;
-    height:20px;
-    padding-top: 6.5px;
-    padding-bottom: 2px;
-    border-radius: 13px;
-    cursor:pointer;
-}
-.MoreIconsAndText:hover{
-    
-    background:rgb(234,35,48);
-    color:whitesmoke 
+    border-radius: 10px;
+    /* height: 20px; */
+    /* width: 50px;
+      height: 20px; */
+    /* padding-top: 6.5px; */
+    /* padding-bottom: 2px;
+      border-radius: 13px; */
+    cursor: pointer;
+  }
+  
+  .MoreOption {
+    /* height: 20px; */
+    /* border: 1px solid gray; */
+    padding: 3px 5px;
+    border-radius: 10px;
+  }
+  
+  .MoreIconsAndText:hover,
+  .MoreIconsAndText:active {
+    background: #f34f4f;
+    color: whitesmoke;
+    border: 1px solid #f34f4f;
+    border-radius: 10px;
     /* opacity:0; */
-}
-.OtherInformationWrapper{
+  }
+  .OtherInformationWrapper {
     /* margin-left: 10%; */
-    width:30%;
-    display:flex;
+    width: 30%;
+    display: flex;
     justify-content: space-evenly;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     font-size: 13px;
     cursor: pointer;
-    
-}
-.OtherInformation{
+  }
+  .OtherInformation {
     position: relative;
-    top:10px
-}
-.ArrowDown{
-    position:relative;
-   
+    top: 10px;
+  }
+  .ArrowDown {
+    position: relative;
+  
     top: 8px;
-}
-
-.SubMenu1{
-    display:none;
-
-}
-.MoreIconsAndText:hover .SubMenu1{
-display: block;
-color:black;
-position: absolute;
-right:-50px;
-top:30px;
-width:150px;
-background:rgb(255, 254, 254);
-border:1px solid lightgrey;
-border-radius: 5px;
-padding: 5px;
-box-shadow: 0px 2px 5px lightgrey;
-text-align: center;
-
-}
-.MoreIconsAndText:hover .SubMenu1 .ListItems{
+  }
+  
+  .SubMenu1 {
+    display: none;
+  }
+  .MoreIconsAndText:hover .SubMenu1 {
+    display: block;
+    color: black;
+    position: absolute;
+    /* right: -50px; */
+    top: 30px;
+    width: 150px;
+    background: rgb(255, 254, 254);
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 2px 5px lightgrey;
+    text-align: center;
+  }
+  
+  .ListItems {
+    padding: 10px 20px;
+  }
+  
+  .MoreIconsAndText:hover .SubMenu1 .ListItems {
     list-style-type: none;
     display: flex;
     /* justify-content: space-evenly; */
-    padding-left:4px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /* padding-left: 4px;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px; */
     /* padding; */
-}
-.MoreIconsAndText:hover .SubMenu1 .ListItems:hover{
-    
-    color:rgb(234,35,48)
-}
-
-.MoreIconsAndText:hover .SubMenu1 .ListItems .Labels{
-    /* padding-left: 0px; */
-}
-
-
-.AccountInfo{
-    display:none;
-}
-.MyAccountWrapper:hover .AccountInfo {
-    display:block !important;  
-    color:black;
+  }
+  .MoreIconsAndText:hover .SubMenu1 .ListItems:hover {
+    color: rgb(234, 35, 48);
+  }
+  
+  .Labels {
+    margin-left: 10px;
+    text-transform: capitalize;
+  }
+  
+  .AccountInfo {
+    display: none;
+  }
+  .MyAccountWrapper:hover .AccountInfo {
+    display: block !important;
+    color: black;
     position: absolute;
-}
+  }
+  

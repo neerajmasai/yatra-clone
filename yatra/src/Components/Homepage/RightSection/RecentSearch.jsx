@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import YatraArrowForwardIcon from "../../Utility/YatraArrowForwardIcon";
-import YatraCloseIcon, { CloseStyles } from "../../Utility/YatraCloseIcon";
+import YatraCloseIcon from "../../Utility/YatraCloseIcon";
 import YatraFlightIcon from "../../Utility/YatraFlightIcon";
 
 const handleClose = (id) => {

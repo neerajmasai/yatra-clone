@@ -1,0 +1,156 @@
+.leftSection{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 45%;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 30px;
+    background-color: white;
+    padding:5px;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 70%);
+    font-size: 14px;
+    
+}
+.r1{
+    padding: 15px;
+    font-size: 1.1em;
+    letter-spacing: .04em;
+    font-weight: 700;
+}
+.btn{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+}
+.btn > button{
+    border: 1px solid rgb(161, 157, 157);
+    padding: 8px;
+    font-size: .7em;
+    font-style: bold;
+    letter-spacing: .1em;
+    padding-left: 16px; 
+    padding-right:16px; 
+    border-radius: 3px;
+    background-color: white;
+    cursor: pointer;
+}
+.dbg{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    padding: 15px;
+}
+.dbg input{
+    border: transparent;
+    border-bottom: 1px solid rgb(114, 110, 110);
+}
+.dep,.goi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+.goi{
+    align-items: flex-end;
+}
+.goi > input{
+    text-align: end;
+}
+.revBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.revBtn > button{
+    border:1px solid red;
+    border-radius: 45%;
+    padding:8px;
+    height: min-content;
+    background-color: white;
+}
+.depRetDate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 16px;
+}
+.depDate{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+    align-items: flex-start;
+    padding: 4px;
+    border-bottom: 1px solid #333;
+}
+.retDate{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 4px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #333;
+}
+
+.bookRound{
+    width: 120px;
+    color:rgb(68, 68, 235); 
+    font-size: 14px;
+}
+.trav{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    padding: 16px;
+}
+.traIco{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(82, 79, 79);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.nonStop{
+    padding-top: 16px;
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.button > button{
+    padding:5px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    padding:10px;
+    color: white;
+}
+.button img{
+    color: white;
+}
