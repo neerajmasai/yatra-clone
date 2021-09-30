@@ -1,13 +1,28 @@
 import { Navbar } from "../Header/Navbar"
+import {Leftsection} from "./LeftSection/Left-section";
+import {RightSection} from "./RightSection/RightSection";
+import {StyledNavbar} from "./Navbar.styled";
+import {StyledLeftSection} from "./LeftSection.styled";
+import {StyledHomepageBody} from "./HomepageBody.styled";
 
 const Homepage =()=>{
-    return <div>
-        <div> 
-        {/* <Navbar /> */}
-        </div>
+    return (
+        <>
+            <StyledNavbar>
+                <Navbar/> 
+            </StyledNavbar>
+      
+            <StyledHomepageBody>
         
-        
-    </div>
+                <StyledLeftSection>
+                    <Leftsection/>
+                </StyledLeftSection>
+
+                <RightSection />
+            
+            </StyledHomepageBody>
+        </>
+    );
 }
 
-export{Homepage}
+export{Homepage};
