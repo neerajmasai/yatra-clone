@@ -8,7 +8,7 @@ const Title = styled.h2`
     text-align: left;
     // background-color: green;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: capitalize;
     color: #333;
     margin-top: 15px;
@@ -63,10 +63,20 @@ const RouteItemStyle = styled.div`
     // box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     box-shadow: 0 1px 6px rgb(0 0 0 / 22%);
     font-size: 14px;
-    color: #333333
+    color: #333333;
     font-family: rubik;
     margin-bottom:5px;
     font-weight: 600;
+
+    ::after {
+        content: ' ';
+        position: absolute;
+        right: -10px;
+        top: 0;
+        width: 20px;
+        height: 1%;
+        /* background: red; */
+    }
 
     &:hover {
         cursor: pointer;
@@ -201,20 +211,20 @@ function PopularFlightRoutes({ routeType }) {
     console.log(routeType);
     return (
         <>
-            <Title>Popular {routeType} Flight Routes</Title>
-            <ShowRoutes>
-                <RouteItems>
-                    {flightRouteArr.map((el) => (
-                        <RouteItem
-                            className="searchCard"
-                            // handleClose={handleClose}
-                            el={el}
-                            key={el.id}
-                        />
-                    ))}
+                <Title>Popular {routeType} Flight Routes</Title>
+                <ShowRoutes>
+                    <RouteItems>
+                        {flightRouteArr.map((el) => (
+                            <RouteItem
+                                className="searchCard"
+                                // handleClose={handleClose}
+                                el={el}
+                                key={el.id}
+                            />
+                        ))}
 
-                </RouteItems>
-            </ShowRoutes>
+                    </RouteItems>
+                </ShowRoutes>
         </>
     );
 }

@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import CountriesOpen from "./CountriesOpen";
+import DownloadYatra from "./DownloadYatra";
+import ExtraDescription from "./ExtraDescription";
 import { ImageSection } from "./ImageSection";
 import { ImageSection2 } from "./ImageSection2";
 import { PopularFlightRoutes } from "./PopularFlightRoutes";
 import { RecentSearch } from "./RecentSearch";
+import YatraSpecials from "./YatraSpecials";
 
 const RightContainer = styled.div`
     margin-top: 70px;
@@ -26,9 +30,13 @@ function RightSection() {
         <RightContainer>
             <ImageSection />
             <RecentSearch />
+            <CountriesOpen />
+            <YatraSpecials />
             <PopularFlightRoutes routeType="domestic" />
             <PopularFlightRoutes routeType="international" />
             <ImageSection2 />
+            <DownloadYatra />
+            <ExtraDescription />
         </RightContainer>
     );
 }
