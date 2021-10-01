@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import DateFnsUtils from "@date-io/date-fns";
 import {
     DatePicker,
@@ -27,8 +27,9 @@ const materialTheme = createMuiTheme({
   }
 });
 
-function YatraDatePicker() {
-  const [selectedDate, handleDateChange] = useState(new Date());
+function YatraDatePicker({handleDateChange}) {
+  const [selectedDate, handleChange] = useState(new Date());
+
   return (
     <div style={{textAlignLast:"center"}}>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -37,7 +38,10 @@ function YatraDatePicker() {
             value={selectedDate}
             format="dd MMM yy"
             variant="inline"
-            onChange={handleDateChange}
+            onChange={(val) =>{
+              handleChange(val)
+              handleDateChange(val)
+            }}
             animateYearScrolling
             disablePast
             autoOk
