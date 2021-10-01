@@ -37,8 +37,8 @@ function Leftsection (){
                 <div className={styles.depRetDate}>
                     <div className={styles.depDate}>
                         <label style={{fontSize:"14px",color:"#A19F9D"}}>Departure Date</label>
-                        <div style={{fontSize:"18px",fontWeight:"700"}}>4 Oct' 21</div>
-                        <label>Monday</label>
+                        {/* <div style={{fontSize:"18px",fontWeight:"700"}}>4 Oct' 21</div>
+                        <label>Monday</label> */}
                         {/* <input type="date"/> */}
                         <YatraDatePicker />
                     </div>

@@ -4,7 +4,8 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    width: 45%;
+    /* background-color: red; */
+    background-color: #FDFAFA;
 }
 .box{
     display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import YatraArrowForwardIcon from "../../Utility/YatraArrowForwardIcon";
-import YatraCloseIcon from "../../Utility/YatraCloseIcon";
+import YatraCloseIcon, { CloseStyles } from "../../Utility/YatraCloseIcon";
 import YatraFlightIcon from "../../Utility/YatraFlightIcon";
 
 const handleClose = (id) => {
@@ -37,7 +37,7 @@ const Title = styled.h2`
     text-align: left;
     // background-color: green;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: capitalize;
     color: #333;
     margin-top: 15px;
@@ -64,27 +64,28 @@ const ItemStyle = styled.div`
     max-width: 30%;
     min-width: 22%;
     margin: 0 20px;
+    left: -10px;
     padding: 20px 15px 5px 15px;
     background-color: white;
-    // border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     text-align: left;
     // box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     box-shadow: 0 1px 6px rgb(0 0 0 / 22%);
     font-size: 14px;
-    color: #333333
+    color: #333333;
     margin-bottom:5px;
     font-weight: 500;
     
-       ::after {
-  content: ' ';
-  position: absolute;
-  right: -50px;
-  top: 0;
-  width: 20px;
-  height: 10%;
-  background: red;
-}
+    ::after {
+        content: ' ';
+        position: absolute;
+        right: -10px;
+        top: 0;
+        width: 20px;
+        height: 1%;
+        /* background: red; */
+    }
 
     .closeBtn {
         display: none;

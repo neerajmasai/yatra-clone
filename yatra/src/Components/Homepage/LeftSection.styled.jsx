@@ -3,7 +3,10 @@ import styled from "styled-components";
 const StyledLeftSection = styled.div`
     width: 45%;
     margin-top: 70px;
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* background-color: blue; */
+    background-color: #FDFAFA;
     height: 100vh;
     font-family: Rubik, sans-serif;
 
