@@ -30,7 +30,7 @@ const materialTheme = createMuiTheme({
 function YatraDatePicker() {
   const [selectedDate, handleDateChange] = useState(new Date());
   return (
-    <div>
+    <div style={{textAlignLast:"center"}}>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <ThemeProvider theme={materialTheme}>
           <DatePicker

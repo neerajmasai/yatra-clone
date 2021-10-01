@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './Css/Left-section.module.css'
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
-import DateFnsUtils from '@date-io/date-fns'; // choose your lib
-import { DatePicker, TimePicker, DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import {YatraDatePicker} from "./../../Utility/YatraDatePicker";
 
 function Leftsection (){
-    const [selectedDate, handleDateChange] = React.useState(new Date());
+    const [countAdult,setAdultCount]= useState(0)
+    const [countChild,setChildCount]= useState(0)
+    const [countInfant,setInfantCount]= useState(0)
 
     return (
         <>
@@ -23,7 +23,7 @@ function Leftsection (){
                     <div className={styles.dep}>
                     <div style={{fontSize:"14px",color:"#A19F9D"}} >Depart From</div>
                     <div style={{fontSize:"18px",fontWeight:"700"}}>Mumbai</div>
-                    <input type= "text" placeholder="BOM"/>
+                    <input type= "select" placeholder="BOM"/>
                     </div>
                     <div className={styles.revBtn}>
                         <button><img width="13px" src="https://www.yatra.com/fresco/resources/toucan/dist/images/swipe.svg?17fd684eff42c5149d5fd6cfe4b0b38b" alt="rev-icon" /></button>
@@ -31,40 +31,66 @@ function Leftsection (){
                     <div className={styles.goi}>
                     <div style={{fontSize:"14px",color:"#A19F9D"}}>Going To</div>
                     <div style={{fontSize:"18px",fontWeight:"700"}}>New Delhi</div>
-                    <input type="text" placeholder="DEL"/>
+                    <input type="select" placeholder="DEL"/>
                     </div>
                 </div>
                 <div className={styles.depRetDate}>
                     <div className={styles.depDate}>
                         <label style={{fontSize:"14px",color:"#A19F9D"}}>Departure Date</label>
-                        {/* <div style={{fontSize:"18px",fontWeight:"700"}}>4 Oct' 21</div>
-                        <label>Monday</label> */}
-                        {/* <input type="date"/> */}
                         <YatraDatePicker />
                     </div>
                     <div className={styles.retDate} >
                         <div style={{fontSize:"14px",color:"#A19F9D"}}>  Return date</div>
-                        <div className={styles.bookRound}>Book Round Trip to save extra</div>
-                        {/* <input type="date"/> */}
                         <YatraDatePicker />
                     </div>
                 </div>
                 <div className={styles.trav}>
                         <label style={{color:"#A19F9D",fontSize:"13px"}}> Traveller(s), class</label>
                         <div className={styles.traIco}>
-                            <div style={{fontSize:"15px",fontWeight:"700"}}>1 Traveller, Economy</div>
+                            <div style={{fontSize:"15px",fontWeight:"700"}}>{countAdult+countChild+countInfant} Traveller, Economy</div>
                             <div><img width="15px" src="https://cdn-icons-png.flaticon.com/512/130/130907.png" alt="dropdown" /></div>
                         </div>
                 </div>
-                <div className={styles.nonStop}>
-                    <input style={{marginLeft:"16px"}} type="checkbox"/>Non Stop Services
+                <div className={styles.aci}>
+                    <div className={styles.adult}>
+                        <div className={styles.aduPar}>
+                        <div className={styles.c}>Adult</div>
+                        <div className={styles.adult}>
+                            <div className={styles.boxCount} onClick={()=>setAdultCount(countAdult+1)}>+</div>
+                            <div className={styles.boxCount}>{countAdult}</div>
+                            <div className={styles.boxCount} onClick={()=>setAdultCount(countAdult-1)}>-</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className={styles.child}>
+                        <div className={styles.chiPar}>
+                        <div className={styles.c}>Child(2-12 Yrs.)</div>
+                        <div className={styles.child}>
+                            <div className={styles.boxCount} onClick={()=>setChildCount(countChild+1)}>+</div>
+                            <div className={styles.boxCount}>{countChild}</div>
+                            <div className={styles.boxCount} onClick={()=>setChildCount(countChild+1)}>-</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className={styles.infant}>
+                        <div className={styles.infPar}>
+                        <div className={styles.c}>Infant(Below 2)</div>
+                        <div className={styles.infant}>
+                            <div className={styles.boxCount} onClick={()=>setInfantCount(countInfant+1)}>+</div>
+                            <div className={styles.boxCount}>{countInfant}</div>
+                            <div className={styles.boxCount} onClick={()=>setInfantCount(countInfant+1)}>-</div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                <div className={styles.radio}>
+                <input type="radio" value={"Economy"} />Economy
+                <input type="radio" value={"Premium Economy"} />Premium Economy
+                <input type="radio" value={"Buisness"} />Buisness
+                </div>
+                <div className={styles.nonStop}>
+                    <input style={{marginLeft:"16px", marginRight:"5px"}} type="checkbox"/>Non Stop Services
+                </div>
                 
                 <div className={styles.button}>
                     <button>Check for refund</button>
