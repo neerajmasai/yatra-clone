@@ -2,7 +2,7 @@ import { Route } from "react-router"
 import App from "../App";
 import { Booking } from "../Components/Booking-page/Booking";
 import { SignUp } from "../Components/SignUp-page/SignUp";
-
+import { Payment } from "../Components/Payment-page/Payment";
 
 export const Routes = ()=>{
     return (
@@ -15,6 +15,9 @@ export const Routes = ()=>{
             </Route>
             <Route path="/signup">
                 <SignUp />
+            </Route>
+            <Route path="/payment">
+                <Payment />
             </Route>
         </>
     );
