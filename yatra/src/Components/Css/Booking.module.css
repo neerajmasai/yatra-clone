@@ -72,12 +72,12 @@
     gap: 70px;
     margin-top: 30px;
 }
-.dates{
+/* .dates{
     height: 65px;
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 1px 6px rgb(0 0 0 / 30%);
-}
+} */
 .left_block{
     width: 75%;
     display: flex;

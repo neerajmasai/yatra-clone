@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../Css/Booking.module.css";
 import AirplaneTicketOutlinedIcon from "@mui/icons-material/AirplaneTicketOutlined";
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
@@ -6,149 +6,35 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import {Navbar} from '../Header/Navbar'
-
+import {FlightDataContext} from '../../Contexts/FlightDataContext'
+import { Redirect } from "react-router-dom";
 
 function Booking() {
-    const offers =[
+    const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
+    console.log(flightContextData)
+    const offers = [
         {
             offerCode :"faljd",
             flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
         },
         {
-            offerCode :"faljd",
-            flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
+            offerCode :"akdjd",
+            flat:"Flat Rs. 399 OFF per Pax (up to Rs 1,400)"
         },
         {
-            offerCode :"faljd",
-            flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
+            offerCode :"afjlf",
+            flat:"Flat Rs. 999 OFF per Pax (up to Rs 3,400)"
         },
         {
-            offerCode :"faljd",
-            flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
+            offerCode :"yafaj",
+            flat:"Flat Rs. 229 OFF per Pax (up to Rs 1,00)"
         },
         {
-            offerCode :"faljd",
-            flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
+            offerCode :"adkdj",
+            flat:"Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
         }
     ];
-  const data = [
-    {
-      origin: "Mumbai",
-      originCode: "BOM-sky",
-      destination: "Pune",
-      destinationCode: "PNQ-sky",
-      airplane: {
-        name: "IndiGo",
-        logo: "https://res.cloudinary.com/wego/f_auto,fl_lossy,h_80,w_80,q_auto/v21012019/flights/airlines_square/6E.png",
-      },
-      nonstop: false,
-      departure: {
-        date: "2021-11-17",
-        dateShort: "Wednesday, 17 November",
-        time: "00:00",
-      },
-      arrival: "18:41",
-      duration: {
-        hours: 18,
-        mins: 41,
-      },
-      travellers: {
-        adults: 2,
-        kids: 0,
-        infants: 0,
-      },
-      travelClass: 2,
-      pricePerHead: 2788,
-      totalFare: 10036,
-    },
-    {
-      origin: "Mumbai",
-      originCode: "BOM-sky",
-      destination: "Pune",
-      destinationCode: "PNQ-sky",
-      airplane: {
-        name: "IndiGo",
-        logo: "https://res.cloudinary.com/wego/f_auto,fl_lossy,h_80,w_80,q_auto/v21012019/flights/airlines_square/6E.png",
-      },
-      nonstop: false,
-      departure: {
-        date: "2021-12-10",
-        dateShort: "Friday, 10 December",
-        time: "00:00",
-      },
-      arrival: "04:36",
-      duration: {
-        hours: 4,
-        mins: 36,
-      },
-      travellers: {
-        adults: 2,
-        kids: 0,
-        infants: 0,
-      },
-      travelClass: 2,
-      pricePerHead: 2872,
-      totalFare: 10339,
-    },
-    {
-      origin: "Mumbai",
-      originCode: "BOM-sky",
-      destination: "Pune",
-      destinationCode: "PNQ-sky",
-      airplane: {
-        name: "IndiGo",
-        logo: "https://res.cloudinary.com/wego/f_auto,fl_lossy,h_80,w_80,q_auto/v21012019/flights/airlines_square/6E.png",
-      },
-      nonstop: false,
-      departure: {
-        date: "2022-03-24",
-        dateShort: "Thursday, 24 March",
-        time: "00:00",
-      },
-      arrival: "11:27",
-      duration: {
-        hours: 11,
-        mins: 27,
-      },
-      travellers: {
-        adults: 2,
-        kids: 0,
-        infants: 0,
-      },
-      travelClass: 2,
-      pricePerHead: 3219,
-      totalFare: 11588,
-    },
-    {
-      origin: "Mumbai",
-      originCode: "BOM-sky",
-      destination: "Pune",
-      destinationCode: "PNQ-sky",
-      airplane: {
-        name: "GoAir",
-        logo: "https://res.cloudinary.com/wego/f_auto,fl_lossy,h_80,w_80,q_auto/v21012019/flights/airlines_square/G8.png",
-      },
-      nonstop: false,
-      departure: {
-        date: "2022-01-24",
-        dateShort: "Monday, 24 January",
-        time: "00:00",
-      },
-      arrival: "19:03",
-      duration: {
-        hours: 19,
-        mins: 3,
-      },
-      travellers: {
-        adults: 2,
-        kids: 0,
-        infants: 0,
-      },
-      travelClass: 2,
-      pricePerHead: 3273,
-      totalFare: 11782,
-    },
-  ];
+  const data = flightContextData;
   const [vFair,setVFair] = useState(false)
   const handleVFair = ()=>{
       if(vFair){
@@ -165,7 +51,7 @@ function Booking() {
         <div className={styles.searchAgain}>
           <div className={styles.search_block}>
             <div className={styles.sas}>
-              <AirplaneTicketOutlinedIcon />
+              <AirplaneTicketOutlinedIcon style={{height:"30px",width:"40px"}} />
             </div>
             <div className={styles.sas}>
               <label>From</label>
@@ -223,7 +109,7 @@ function Booking() {
               <KeyboardArrowDownOutlinedIcon />
             </div>
             <div className={styles.filter}>
-              <div>More Filters</div>
+              <div style={{color:"blue"}}>More Filters</div>
               <KeyboardArrowDownOutlinedIcon />
             </div>
           </div>
@@ -231,8 +117,7 @@ function Booking() {
 
         <div className={styles.block}>
           <div className={styles.left_block}>
-            <div className={styles.dates}>
-              {/* array.map */}
+            {/* <div className={styles.dates}>
               <div className={styles.sas}>
                 <div>{data[0].departure.dateShort}</div>
                 <div>
@@ -244,7 +129,7 @@ function Booking() {
                   {data[0].pricePerHead}
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.sort}>
               <div>SortBy</div>
@@ -287,7 +172,7 @@ function Booking() {
                       <div className={styles.time}>
                         {e.duration.hours} {e.duration.mins}m
                       </div>
-                      <div>0 stop</div>
+                      <div>{e.nonstop ? "0 Stop" : "1 Stop"}</div>
                     </div>
                     <div className={styles.icFlDate}>
                       <div style={{fontSize:"19px",fontWeight:"600"}}>
@@ -304,7 +189,7 @@ function Booking() {
                     </div>
                   </div>
                   {vFair ? ( <div className={styles.viewFair}>
-                        Total fair : {e.totalFare}
+                        Total fair : {e.totalFare} <button onClick={()=>{return <Redirect to="http://localhost:3000/checkout"/>}}>Book</button>
                 </div>): <div></div>}
                 </div>
 
