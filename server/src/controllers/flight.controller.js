@@ -13,7 +13,7 @@ const router = express.Router();
 //Http Verbs
 
 // get flight price for oneway
-router.get("/search/oneway", async function (req, res) {
+router.post("/search/oneway", async function (req, res) {
 
     /* TODO:
         0. construct payload for skyscanner
@@ -57,23 +57,23 @@ router.get("/search/oneway", async function (req, res) {
                 const customObj = constructFlightDataResponse(req.body, response.data.Quotes, response.data.Carriers, airplaneData.data);
                 return res.status(200).send(customObj);
             }).catch(function (error) {
-                console.error(error);
+                //console.error(error);
             }); 
 
 
         }).catch(function (error) {
-            console.log(error);
+            //console.log(error);
             return res.status(404).send("Data invalid or unavailable.");
         });        
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         return res.status(404).send("Data invalid or unavailable.");
     }
 
 })
 
 //get all flight prices
-router.get("/search/oneway/all", function (req, res) {
+router.post("/search/oneway/all", function (req, res) {
 
     /* TODO:
         0. construct payload for skyscanner
@@ -92,7 +92,7 @@ router.get("/search/oneway/all", function (req, res) {
         const originPlace = req.body.originCode;
         const destinationPlace = req.body.destinationCode;
         const departureDate = "anytime";
-
+        console.log(req.body);
         var options = {
             method: 'GET',
             url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/${countryCode}/${currencyCode}/${locale}/${originPlace}/${destinationPlace}/${departureDate}`,
@@ -103,7 +103,8 @@ router.get("/search/oneway/all", function (req, res) {
         };
         
         axios.request(options).then(function (response) {
-
+            console.log(options);
+            console.log(response);
             if(response.data.Quotes.length === 0){
                 //if route not found then return all data
                 return res.status(404).send("Data invalid or not available");
@@ -116,17 +117,17 @@ router.get("/search/oneway/all", function (req, res) {
                 const customObj = constructFlightDataResponse(req.body, response.data.Quotes, response.data.Carriers, airplaneData.data);
                 return res.status(200).send(customObj);
             }).catch(function (error) {
-                console.log(error);
+                console.log(error.data);
                 return res.status(404).send("Data invalid or unavailable.");
             }); 
 
 
         }).catch(function (error) {
-            console.log(error);
+            //console.log(error);
             return res.status(404).send("Data invalid or unavailable.");
         });        
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         return res.status(404).send("Data invalid or unavailable.");
     }
 
