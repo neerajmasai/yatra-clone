@@ -5,14 +5,15 @@ import {BrowserRouter} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import { Routes } from './Routes/Router';
 import { AuthProvider } from './Contexts/AuthContext';
-
-
+import { FlightDataProvider } from "./Contexts/FlightDataContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <AuthProvider>
-    <Routes/>    
+    <FlightDataProvider>
+      <Routes/>  
+    </FlightDataProvider>  
     </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
