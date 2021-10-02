@@ -18,17 +18,20 @@ body{
   .MainContainer{
       width:100%;
       margin:0px auto;
-      background:rgb(250, 248, 248)
+      background:rgb(238,238,238)
   }
   .PaymentHeading{
       
-      width:60%;
-      margin:10px auto;
+      max-width:1100%;
+      margin:0px auto;
+      margin-top: 40px;
+      margin-bottom: -10px;
       font-family: sans-serif;
-      display:flex;
-      color: #ea2331;
-      font-size: 20px;
+      /* display:flex; */
+      color: rgb(93, 92, 92);
+      font-size: 14px;
       font-weight: 400;
+      text-align: center;
   }
   .MainBox{
       width:60%;
@@ -70,7 +73,7 @@ body{
       text-align: center;
   }
   .PaymentMethods{
-      width:25%;
+      width:35%;
       /* border:1px solid black */
       margin-left: -40px
   }
@@ -79,14 +82,21 @@ body{
     border: 1px solid rgb(211, 206, 206);
     border-bottom: none;
     list-style-type:none;
-    background-color:rgb(250, 248, 248);
-    font-size: 12px;
+    background-color:rgb(56,63,69);
+    color:white;
+    font-size: 10px;
+    display: flex;
+    justify-content:space  ;
+    align-items: center;
   }
-  .PaymentMethods  li:hover,
-  .PaymentMethods  li:nth-child(1){
+  .PaymentMethods  li div{
+      margin-left: 5px;
+  }
+  
+  .PaymentMethods  li:hover{
       cursor: pointer;
-      color:#ea2330;
-      background-color: white !important;
+      /* color:#ea2330; */
+      background-color: #F34F4F!important;
       border-left: 3px solid #ea2330;
   }
   .PaymentMethods  li:nth-last-child(1){
@@ -95,6 +105,10 @@ body{
   .PaymentIcon{
     margin-top: 15px;
    
+  }
+  .IconResize{
+    font-size:10px;
+    width:5px
   }
   .EachItemDiv{
       width:100%;
@@ -157,7 +171,7 @@ body{
   }
 
   .DetailCard{
-      width:100%;
+      width:90%;
     background: white ;
     padding:5px 0px
   }
@@ -170,14 +184,26 @@ body{
       font-size: 12px;
       padding:4px 0px;
       width: 90%; 
+      
   }
-  .DetailCard li:nth-child(2){
-    border-bottom: 1px solid gray;
-    padding:8px 0px;
+  .DetailCard li div{
+      margin:auto;
   }
-  .DetailCard li:nth-child(3){
-      color:black;
-      font-size: 18px;
-      padding:25px 0px;
-      border-bottom: 1px solid gray;
+  .ProfileIcon{
+      color:#ea2330;
+      
+  }
+  .BookingList{
+      display:inline-flex;
+      justify-content:space-between;
+      padding:10px 5px;
+      background:rgb(247,247,247);
+      width: 110%;
+      margin-left: -8%;
+      
+  }
+  .BookingListItem{
+      font-size:10px;
+      color:grey;
+      padding-right: 5px;
   }

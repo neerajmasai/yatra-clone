@@ -3,7 +3,7 @@ import App from "../App";
 import { Booking } from "../Components/Booking-page/Booking";
 import { SignUp } from "../Components/SignUp-page/SignUp";
 import { Payment } from "../Components/Payment-page/Payment";
-
+import {Dashboard} from "../Components/Dashboard-page/Dashboard";
 export const Routes = ()=>{
     return (
         <>
@@ -18,6 +18,9 @@ export const Routes = ()=>{
             </Route>
             <Route path="/payment">
                 <Payment />
+            </Route>
+            <Route path="/dashboard">
+                <Dashboard />
             </Route>
         </>
     );

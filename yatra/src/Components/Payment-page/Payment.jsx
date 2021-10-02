@@ -1,5 +1,6 @@
 import styles from "./Payment.module.css";
 import PaymentIcon from "@material-ui/icons/Payment";
+import {Navbar} from "../Header/Navbar"
 const Payment = () => {
   const arr = [
     {
@@ -33,13 +34,15 @@ const Payment = () => {
       <div className={styles.headerContainer}>
         <div className={styles.AppLogo}></div>
       </div>
+      <Navbar />
       <div className={styles.PaymentHeading}>
         {" "}
         <PaymentIcon
           className={styles.PaymentIcon}
-          style={{ fontSize: "40px", color: "blue" }}
+          
         />
-        <h2> Payment Methods</h2>
+        <p> Payment Methods</p>
+    
       </div>
       <div className={styles.MainBox}>
         <div className={styles.LeftBox}>
@@ -94,10 +97,11 @@ const Payment = () => {
             </div>
             <div className={styles.inputBoxContainer}>
               <div>virtual Payment Adress</div>
+              <br />
               <input type="text" className={styles.inputBox} />
             </div>
             <br />
-            <div className={styles.PriceAndButton} style={{}}>
+            <div className={styles.PriceAndButton}>
               <div className={styles.PriceAmount}> &#8377; 5806</div>
               <button className={styles.PayButton}>Pay Now</button>
             </div>
@@ -106,8 +110,21 @@ const Payment = () => {
           <div className={styles.PlaneText}>By clicking on Pay now You are agree to our <span className={styles.Terms}>Terms and Conditons</span>  , <span className={styles.Terms}>Privacy Policy</span> ,<span className={styles.Terms}> User Agreement</span> and  <span className={styles.Terms}>Covid-19 Guidelines</span> </div>
           </div>
         </div>
+            
+        <div className={styles.RightSide}>
+            <div className={styles.DetailCard}>
+                Payment Details
+                <ul>
+                    <li><div>Total flight price</div> <div> &#8377; 5,506</div> </li>
+                    <li><div>Convenience fee</div> <div> &#8377; 300</div> </li>
+                    <li><div>You Pay</div> <div> &#8377; 5,806</div> </li>
+                    <li><div>Earn <span style={{color:'rgb(219, 203, 57)'}}> eCash</span> </div> <div> &#8377; 250</div> </li>
 
-        <div className={styles.RightSide}></div>
+
+
+                </ul>
+            </div>
+        </div>
       </div>
     </div>
   );
