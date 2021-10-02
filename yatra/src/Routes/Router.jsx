@@ -17,16 +17,16 @@ export const Routes = ()=>{
             <Route path="/signup">
                 <SignUp />
             </Route>
-<<<<<<< HEAD
+
             <Route path="/payment">
                 <Payment />
             </Route>
             <Route path="/dashboard">
                 <Dashboard />
-=======
+            </Route>
             <Route path='/signin'>
                 <SignIn />
->>>>>>> 900ce9d0e9f7ee501127fc3c4345aa5cb531c438
+
             </Route>
         </>
     );
