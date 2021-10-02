@@ -4,6 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import axios from 'axios';
 import { v4 as uuid } from "uuid";
+import { fetchUser } from "./FetchUser";
 
 const LeftStyles = styled.div`
     text-align: center;
@@ -75,21 +76,34 @@ const LeftStyles = styled.div`
     }
 `;
 
-function SignUpLeft() {
+const initUser = {
+    email: "",
+
+}
+
+function SignInLeft() {
 
     const [email, setEmail] = React.useState("");
-    const [pwd, setPwd] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    // const [token, setToken] = React.useState("");
+    // const [isAuth, setIsAuth] = React.useState(false);
+    // const [isLoading, setIsLoading] = React.useState(false);
+    // const [isError, setIsError] = React.useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post(`http://localhost:2345/users`, {
-            "email": email,
-            "password": pwd,
-            "token": uuid()
-        }).then(function (res) {
-            console.log(res);
-        })
+        // setIsLoading(true);
+        // setIsError(false);
+        // fetchUser({ email, password })
+        //     .then((res) => {
+        //         setIsAuth(true);
+        //         console.log(res);
+        //     })
+        //     .catch((err) => {
+        //         setIsError(true);
+        //         console.log("Error is", err);
+        //     });
     };
 
     return (
@@ -100,7 +114,7 @@ function SignUpLeft() {
                 width="100px"
             />
             {/* <div>EMAIL ID</div> */}
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <input
                     type="email"
                     placeholder="Email ID"
@@ -108,10 +122,10 @@ function SignUpLeft() {
                 />
                 <input
                     type="password"
-                    onChange={(e) => setPwd(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
-                <input type="submit" value="Continue" className="SubmitBtn"/>
+                <input type="submit" value="Continue" className="SubmitBtn" />
             </form>
             <div className="TnC">By proceeding, you agree with our Terms of Service, Privacy Policy and Master User Agreement.</div>
             <button className="FacebookBtn">
@@ -127,4 +141,4 @@ function SignUpLeft() {
     );
 }
 
-export { SignUpLeft };
+export { SignInLeft };
