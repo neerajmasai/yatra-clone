@@ -1,3 +1,210 @@
 .main_box{
-    background-color: yellow;
+    margin-top: 100px;
 }
+
+
+.searchAgain{
+    background: -webkit-linear-gradient(left, #b7243a, #43264E);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    height: 60px;
+}
+.search_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    gap: 10px;
+}
+.sas{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 10px;
+    letter-spacing: .08em;
+    color: #fff;
+    font-weight: 500;
+}
+::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+}  
+.sas>input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid silver;
+    font-weight: 500;
+    font-size: 17px;
+}
+.filterDiv{
+    background-color: white;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 30%);
+    font-size: 12px;
+    color: #333;
+    font-weight: 600;
+}
+.filterOpt{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 5px;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    width: 70%;
+    gap: 70px;
+    margin-top: 30px;
+}
+.dates{
+    height: 65px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 30%);
+}
+.left_block{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 20px;
+}
+.dad{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 70px;
+}
+.sort{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E5E7EB;
+    border-radius: 5px;
+    font-size: .79rem;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sort > div{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.fliDate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fliDate > div{
+    font-size: .8rem;
+}
+.icFlDate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.up_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.flights{
+    background-color: white;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 30%);
+    border-radius: 5px;
+    padding: 20px;
+}
+.time{
+    font-size: 15px !important;
+    font-weight: 600;
+}
+.flightmain{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:stretch;
+    gap:10px
+}
+.viewFair{
+    margin: 20px;;
+    text-align: center;
+}
+.smallBox{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 3px;
+    margin-right: 2px;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: 4px;
+}
+.btn,.vbtn{
+    background-color: #f34f4f;
+    border: none;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+}
+.vbtn{
+    background-color: white;
+    color: #f34f4f;
+    border:1px solid #f34f4f;
+    font-weight: 300;
+}
+.right_block{
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 1px 6px rgb(0 0 0 / 30%);
+    border-radius: 5px;
+}
+.repeatOffers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 1px 6px rgb(0 0 0 / 30%);
+    text-align: center;
+    
+}
+.codeDiv{
+    border: 2px dashed #f34f4f;
+    background-color: #E5E7EB;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px;
+}
+
