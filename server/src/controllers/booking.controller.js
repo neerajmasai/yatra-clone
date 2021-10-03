@@ -10,7 +10,7 @@ const Booking = require("../models/booking.model.js");
 
 //Http Verbs will come here GET, GET by id, POST, PATCH, DELETE
 
-// post Booking to the database 
+// postBooking to the database 
 
 router.post("/", async function (req, res) {
     try {

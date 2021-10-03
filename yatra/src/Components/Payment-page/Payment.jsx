@@ -2,11 +2,16 @@ import styles from "./Payment.module.css";
 import PaymentIcon from "@material-ui/icons/Payment";
 import {Navbar} from "../Header/Navbar"
 import {BookingDetailsContext} from "../../Contexts/BookingDetailsContext";
-import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { useContext, useState } from "react";
+import { Redirect } from "react-router";
 
 const Payment = () => {
   const {flightDetails} = useContext(BookingDetailsContext);
+  const {user} = useContext(AuthContext);
+  console.log(user);
   console.log(flightDetails);
+  const [redirect, setRedirect] = useState(false);
   const arr = [
     {
       image:
@@ -34,6 +39,9 @@ const Payment = () => {
       label: "Congratulations Your Payment is done Now",
     },
   ];
+  if(redirect){
+    return <Redirect to={`/payment/thankyou`}/>
+  }
   return (
     <div className={styles.MainContainer}>
       <div className={styles.headerContainer}>
@@ -111,7 +119,7 @@ const Payment = () => {
               <button className={styles.PayButton} onClick={() => {
                 //TODO: Save booking data in db with user id
                 var axios = require('axios');
-                var data = JSON.stringify({"booking":{...flightDetails}});
+                var data = JSON.stringify({"user":{...user}, "booking":{...flightDetails}});
                 
                 var config = {
                   method: 'post',
@@ -124,7 +132,9 @@ const Payment = () => {
                 
                 axios(config)
                 .then(function (response) {
-                  console.log(JSON.stringify(response.data));
+                  console.log(response.data);
+                  //redirect to thank you page
+                  setRedirect(true);
                 })
                 .catch(function (error) {
                   console.log(error);

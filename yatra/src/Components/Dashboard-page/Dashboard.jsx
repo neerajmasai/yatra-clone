@@ -10,11 +10,47 @@ import MoneyIcon from "@mui/icons-material/Money";
 import PersonIcon from "@mui/icons-material/Person";
 import CreateIcon from "@mui/icons-material/Create";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { useContext, useEffect, useState } from "react";
 // import {useContext} from 'react'
 // import {FlightDataContext} from '../../Contexts/FlightDataContext'
 const Dashboard = () => {
     // const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
-  
+  const {user} = useContext(AuthContext);
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    //load bookings for user
+    var axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: 'http://localhost:2345/bookings',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+    };
+
+    axios(config)
+    .then(function (response) {
+      let data = findUserBookings(user._id, response.data);
+      setUserData([...data]);
+      console.log(userData);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }, [])
+
+  const findUserBookings = (userId, bookings) => {
+      const userBookings = [];
+      for(let i=0; i<bookings.length; i++){
+        if(bookings[i].user._id === userId){
+          userBookings.push(bookings[i]);
+        }
+      }
+      return userBookings;
+  }
   const arr = [
     "ALL",
     "FLIGHTS",
@@ -93,6 +129,13 @@ const Dashboard = () => {
                   return <div className={styles.BookingListItem}>{item}</div>;
                 })}
               </div>
+              <div>
+                  {userData.map((item) => {
+                    return <div className={styles.BookingListItem}>
+                      <h1>{item.booking.departure.dateShort}</h1>
+                    </div>;
+                  })}
+              </div>
               {/* <br />
               <div className={styles.PaymentProcedures}>here to write</div>
               <div className={styles.inputBoxContainer}>
@@ -125,14 +168,14 @@ const Dashboard = () => {
                   </div>{" "}
                 </li>
                 <li>
-                  <div>MR. SHARIQ ANSARI</div>
+                  <div>{`${user.firstName} ${user.lastName}`}</div>
                 </li>
 
                 <li>
-                  <div>Phone: +91-8761234567 </div>{" "}
+                  <div>{user.phone}</div>{" "}
                 </li>
                 <li>
-                  <div>ansarisharique0003@gmail.com </div>{" "}
+                  <div>{user.email}</div>{" "}
                 </li>
               </ul>
             </div>
