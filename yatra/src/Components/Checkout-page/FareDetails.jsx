@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
+import { BookingDetailsContext } from "../../Contexts/BookingDetailsContext";
 
 const FareDiv = styled.div`
     /* width: 250px; */
@@ -41,6 +42,7 @@ const initFare = {
 const fee = 915;
 
 function FareDetails() {
+    const {flightDetails} = useContext(BookingDetailsContext)
     const [finalAmount, setFinalAmount] = React.useState(fee);
     const [fareReview, setFareReview] = React.useState(initFare);
     console.log(finalAmount);
@@ -54,13 +56,13 @@ function FareDetails() {
             <FareDiv>
             <h3>Fare Details</h3>
                 <div>
-                    <div>Base Fare ({fareReview.travellers} Travellers)</div>
-                    <div> ₹ {fareReview.total} </div>
+                    <div>Base Fare (₹{flightDetails.pricePerHead} Per Traveller)</div>
+                    <div> ₹ {flightDetails.totalFare} </div>
                 </div>
 
                 <div>
                     <div>Fees & Surcharges</div>
-                    <div> ₹ {fee} </div>
+                    <div> ₹ {flightDetails.totalFare - flightDetails.pricePerHead} </div>
                 </div>
                 {/* <div className="totalFare">
                     <div>Total Fare</div>
@@ -68,7 +70,7 @@ function FareDetails() {
                 </div> */}
                 <div className="youPay">
                     <div>You Pay:</div>
-                    <div> ₹ {finalAmount} </div>
+                    <div> ₹ {flightDetails.totalFare} </div>
                 </div>
 
             </FareDiv>

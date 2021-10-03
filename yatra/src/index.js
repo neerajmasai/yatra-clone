@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { Routes } from './Routes/Router';
 import { AuthProvider } from './Contexts/AuthContext';
 import { FlightDataProvider } from "./Contexts/FlightDataContext";
+import { BookingDetailsProvider } from './Contexts/BookingDetailsContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <AuthProvider>
     <FlightDataProvider>
+      <BookingDetailsProvider>
       <Routes/>  
+      </BookingDetailsProvider>
     </FlightDataProvider>  
     </AuthProvider>
     </BrowserRouter>

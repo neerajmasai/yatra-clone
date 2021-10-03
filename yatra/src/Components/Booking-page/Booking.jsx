@@ -17,11 +17,12 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { BookingDetailsContext } from "../../Contexts/BookingDetailsContext";
 
 function Booking() {
-    const {flightContextData,flightDetails, handleFlightDetails} = useContext(FlightDataContext)
-    console.log(flightContextData)
-    const data = flightContextData
+    const {flightContextData} = useContext(FlightDataContext)
+    const {flightDetails,handleFlightDetails} = useContext(BookingDetailsContext)
+      const data = flightContextData
     const [redirectToBookings, setRedirectToBookings] = useState(false);
     
     const {token} = useContext(AuthContext)
@@ -63,7 +64,7 @@ function Booking() {
 
 
   const handleBook = (flightData)=>{
-    
+    console.log(flightData)
     handleFlightDetails(flightData)
     setRedirectToBookings(true)
       // if(token !== ""){

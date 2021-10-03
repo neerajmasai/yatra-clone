@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./../Css/Booking.module.css";
 import styled from "styled-components";
-import { FlightDataContext } from "../../Contexts/FlightDataContext";
+import { BookingDetailsContext } from "../../Contexts/BookingDetailsContext";
 // import { FlightDataContext, FlightDetailsContext } from "../../Contexts/FlightDataContext";
 // import AirplaneTicketOutlinedIcon from "@mui/icons-material/AirplaneTicketOutlined";
 // import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
@@ -27,9 +27,10 @@ const Heading = styled.div`
 `;
 
 function FlightReview() {
-    const {flightDetails} = useContext(FlightDataContext)
-    console.log(flightDetails)
-    const data = flightDetails;
+    const {flightDetails} = useContext(BookingDetailsContext)
+    var data = []
+    data.push(flightDetails)
+    console.log("data print", data)
     const [vFair,setVFair] = useState(false)
 
     const handleVFair = ()=>{
