@@ -11,7 +11,7 @@ import {Redirect} from "react-router-dom";
 import {v4 as uuid} from 'uuid'
 import { AuthContext } from "../../Contexts/AuthContext";
 import { FilterMenuDiv } from "./FilterMenu";
-import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlinedIcon"
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 
 function Booking() {
     const {flightContextData} = useContext(FlightDataContext)
@@ -223,9 +223,6 @@ function Booking() {
                   {vFair ? ( <div className={styles.viewFair}>
                         Total fair : {e.totalFare} <button onClick={()=>{handleBook(e)}}>Book</button>
                 </div>): <div></div>}
-                  {vFair ? (<div className={styles.viewFair}>
-                    Total fair : {e.totalFare} <button onClick={() => { return <Redirect to="http://localhost:3000/checkout" /> }}>Book</button>
-                  </div>) : <div></div>}
                 </div>
 
               ))}
