@@ -10,6 +10,8 @@ import {FlightDataContext, flightDetailsContext} from '../../Contexts/FlightData
 import {Redirect} from "react-router-dom";
 import {v4 as uuid} from 'uuid'
 import { AuthContext } from "../../Contexts/AuthContext";
+import { FilterMenuDiv } from "./FilterMenu";
+import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlinedIcon"
 
 function Booking() {
     const {flightContextData} = useContext(FlightDataContext)
@@ -18,6 +20,7 @@ function Booking() {
     const {handleFlightDetails} = useContext(flightDetailsContext)
     const {token} = useContext(AuthContext)
 
+    const [showFilters, setShowFilters] = useState(false)
     const offers = [
         {
             offerCode :"faljd",
@@ -64,12 +67,12 @@ function Booking() {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className={styles.main_box}>
         <div className={styles.searchAgain}>
           <div className={styles.search_block}>
             <div className={styles.sas}>
-              <AirplaneTicketOutlinedIcon style={{height:"30px",width:"40px"}} />
+              <AirplaneTicketOutlinedIcon style={{ height: "30px", width: "40px" }} />
             </div>
             <div className={styles.sas}>
               <label>From</label>
@@ -126,13 +129,24 @@ function Booking() {
               <div>Aircraft</div>
               <KeyboardArrowDownOutlinedIcon />
             </div>
-            <div className={styles.filter}>
-              <div style={{color:"blue"}}>More Filters</div>
-              <KeyboardArrowDownOutlinedIcon />
+            <div className={styles.filter} style={{color: "#3691ca"}} onClick={() => setShowFilters(!showFilters)}>
+              {/* <div style={{ color: "#3691ca" }}> */}
+                {!showFilters
+                  ? <>More Filters <KeyboardArrowDownOutlinedIcon /></>
+                  : <>Hide Filters <KeyboardArrowUpOutlinedIcon /></>
+                }
+              {/* </div> */}
+              
             </div>
           </div>
         </div>
 
+        {showFilters
+          ? <div className="additionalFilters">
+            <FilterMenuDiv />
+          </div>
+          : null
+        }
         <div className={styles.block}>
           <div className={styles.left_block}>
             {/* <div className={styles.dates}>
@@ -158,7 +172,7 @@ function Booking() {
               </div>
               <div className="pr-up">
                 <div className={styles.filter}>
-                  PRICE PER ADULT <div> < ArrowUpwardSharpIcon style={{height:"14px"}} /></div>
+                  PRICE PER ADULT <div> < ArrowUpwardSharpIcon style={{ height: "14px" }} /></div>
                 </div>
               </div>
             </div>
@@ -175,7 +189,7 @@ function Booking() {
                         />
                       </div>
                       <div className={styles.fliDate}>
-                        <div style={{fontWeight:"bold"}}>{e.airplane.name}</div>
+                        <div style={{ fontWeight: "bold" }}>{e.airplane.name}</div>
                       </div>
                     </div>
                     <div className={styles.fliDate}>
@@ -193,7 +207,7 @@ function Booking() {
                       <div>{e.nonstop ? "0 Stop" : "1 Stop"}</div>
                     </div>
                     <div className={styles.icFlDate}>
-                      <div style={{fontSize:"19px",fontWeight:"600"}}>
+                      <div style={{ fontSize: "19px", fontWeight: "600" }}>
                         <img
                           width="15px"
                           src="https://cdn-icons-png.flaticon.com/512/3104/3104891.png"
@@ -209,6 +223,9 @@ function Booking() {
                   {vFair ? ( <div className={styles.viewFair}>
                         Total fair : {e.totalFare} <button onClick={()=>{handleBook(e)}}>Book</button>
                 </div>): <div></div>}
+                  {vFair ? (<div className={styles.viewFair}>
+                    Total fair : {e.totalFare} <button onClick={() => { return <Redirect to="http://localhost:3000/checkout" /> }}>Book</button>
+                  </div>) : <div></div>}
                 </div>
 
               ))}
@@ -217,14 +234,14 @@ function Booking() {
           <div className={styles.right_block}>
             {/* array.map */}
             <div className="offers">
-              <div style={{fontWeight:"700",margin:"20px",textAlignLast:"center",position:'relative'}}>Today's Offers</div>
+              <div style={{ fontWeight: "700", margin: "20px", textAlignLast: "center", position: 'relative' }}>Today's Offers</div>
 
-              { offers.map(e =>
-              <div className={styles.repeatOffers}>
-                <div className={styles.codeDiv}>{e.offerCode.toUpperCase()}</div>
-              <div style={{fontSize:"12px"}}>{e.flat}</div>
-              <div style={{color:"blue", fontSize:"14px"}}>Copy Code</div>
-              </div>
+              {offers.map(e =>
+                <div className={styles.repeatOffers}>
+                  <div className={styles.codeDiv}>{e.offerCode.toUpperCase()}</div>
+                  <div style={{ fontSize: "12px" }}>{e.flat}</div>
+                  <div style={{ color: "#3691ca", fontSize: "14px" }}>Copy Code</div>
+                </div>
               )}
             </div>
           </div>
