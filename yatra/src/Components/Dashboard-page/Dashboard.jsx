@@ -129,10 +129,18 @@ const Dashboard = () => {
                   return <div className={styles.BookingListItem}>{item}</div>;
                 })}
               </div>
+              <h2>Your Past Bookings</h2>
               <div>
                   {userData.map((item) => {
-                    return <div className={styles.BookingListItem}>
+                  
+                    return <div style={{backgroundColor:"whitesmoke",borderRadius:"5px", padding:"10px",margin:"10px"}} className={styles.BookingListItem}>
+                      
                       <h1>{item.booking.departure.dateShort}</h1>
+                      <h2>Travel From : {item.booking.origin}</h2>
+                      <h2>Going To : {item.booking.destination}</h2>
+                      <h2>Price Per Head : {item.booking.pricePerHead}</h2>
+                      <h2>Travellers : {item.booking.travellers.adults +item.booking.travellers.infants +item.booking.travellers.kids}</h2>
+                      <h2>Total Cost : {item.booking.totalFare}</h2>
                     </div>;
                   })}
               </div>
