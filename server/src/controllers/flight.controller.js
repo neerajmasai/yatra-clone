@@ -166,12 +166,12 @@ function constructFlightDataResponse(custom, info, flight, plane){
             //format dates
             let departureShort = formatDate(info[i].OutboundLeg.DepartureDate);
 
-            //calculate departure time
-            let departureTime = calculateDepartureTime(info[i].OutboundLeg.DepartureDate);
-
             //calulcate arrival time
             let arrivalTime = calculateArrivalTime(durationHours, durationMins, info[i].OutboundLeg.DepartureDate);
-
+            
+            //calculate departure time
+            let departureTime = calculateArrivalTime(durationHours-5, durationMins-5, info[i].OutboundLeg.DepartureDate);
+            
             //calculate fare
             let fare = calculateFare(info[i].MinPrice, custom.travellers, custom.travelClass);
 
