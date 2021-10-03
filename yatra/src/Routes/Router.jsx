@@ -6,7 +6,7 @@ import { SignUp } from "../Components/SignUp-page/SignUp";
 import { Payment } from "../Components/Payment-page/Payment";
 import { Dashboard } from "../Components/Dashboard-page/Dashboard";
 import { Checkout } from "../Components/Checkout-page/Checkout-main";
-
+import { ThankYou } from "../Components/ThankYou/ThankYou";
 export const Routes = ()=>{
     return (
         <>
@@ -22,7 +22,7 @@ export const Routes = ()=>{
             <Route path='/signin'>
                 <SignIn />
             </Route>
-            <Route path="/payment">
+            <Route exact path="/payment">
                 <Payment />
             </Route>
             <Route path="/dashboard">
@@ -30,6 +30,9 @@ export const Routes = ()=>{
             </Route>
             <Route path="/checkout">
                 <Checkout />
+            </Route>
+            <Route exact path="/payment/thankyou">
+                <ThankYou />
             </Route>
 
         </>
