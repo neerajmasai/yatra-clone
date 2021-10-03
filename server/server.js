@@ -28,9 +28,11 @@ const transactionController = require("./src/controllers/transaction.controller.
 const placeController = require("./src/controllers/place.controller.js");
 const flightController = require("./src/controllers/flight.controller.js");
 const airplaneController = require("./src/controllers/airplane.controller.js");
+const bookingController = require("./src/controllers/booking.controller.js");
 app.use("/products", productController);
 app.use("/users", userController);
 app.use("/transactions", transactionController);
 app.use("/places", placeController);
 app.use("/flights", flightController);
 app.use("/airplanes", airplaneController);
+app.use("/bookings", bookingController);

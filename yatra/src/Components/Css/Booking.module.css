@@ -1,5 +1,6 @@
 .main_box{
-    margin-top: 100px;
+    margin-top: 70px;
+    z-index: 5;
 }
 
 
@@ -30,10 +31,10 @@
     color: #fff;
     font-weight: 500;
 }
-::placeholder {
+/* ::placeholder {
     color: white;
-    opacity: 1; /* Firefox */
-}  
+    opacity: 1;
+}    */
 .sas>input{
     border: none;
     background-color: transparent;

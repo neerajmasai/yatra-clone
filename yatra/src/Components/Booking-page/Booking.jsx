@@ -6,14 +6,14 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
-import CheckIcon  from '@mui/icons-material/Check';
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import CheckIcon from "@mui/icons-material/Check";
 import { Navbar } from "../Header/Navbar";
 import { FlightDataContext } from "../../Contexts/FlightDataContext";
 import { Redirect } from "react-router-dom";
@@ -56,7 +56,7 @@ function Booking() {
   return (
     <>
       <Navbar />
-      
+
       <div className={styles.main_box}>
         <div className={styles.searchAgain}>
           <div className={styles.search_block}>
@@ -89,7 +89,7 @@ function Booking() {
               />
             </div>
             <div className={styles.sas}>
-              <button className={styles.vbtn} >Search Again</button>
+              <button className={styles.vbtn}>Search Again</button>
             </div>
           </div>
         </div>
@@ -211,135 +211,147 @@ function Booking() {
                   {vFair ? (
                     <div className={styles.viewFair}>
                       <div>
-                      <table>
-                       <tbody>
-                         <tr>
-                           <td>Services</td>
-                           <td>
-                             <div>
-                           <LocalMallIcon/>
-                               <div>Checked Bag</div>
-                             </div>
-                           </td>
-                           <td>
-                             <div>
-                           <ShoppingBagIcon/>
-                               <div>Hand Bag</div>
-                             </div>
-                           </td>
-                           <td>
-                             <div>
-                           <FactCheckIcon/>
-                               <div>Seat selection</div>
-                             </div>
-                           </td>
-                           <td>
-                             <div>
-                           <DateRangeIcon/>
-                               <div>Date change</div>
-                             </div>
-                           </td>
-                           <td>
-                             <div>
-                           <MonetizationOnIcon/>
-                               <div>Cancellation</div>
-                             </div>
-                           </td>
-                           <td>
-                             <div>
-                           <LocalDiningIcon/>
-                               <div>Meal</div>
-                             </div>
-                           </td>
-                           <td></td>
-                         </tr>
-                         <tr>
-                           <td>
-                             Economy Fare
-                           </td>
-                           <td>
-                             25kg
-                           </td>
-                           <td>
-                             <CheckIcon style={{color:'green'}}  />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td><div>
-                              <div>&#8377;{ e.totalFare}{" "}</div>
-                              <div> <button className={styles.vbtn}
-                          onClick={() => {
-                            return (
-                              <Redirect to="http://localhost:3000/checkout" />
-                            );
-                          }}
-                        >
-                          Book
-                        </button></div>
-                             </div></td>
-                         </tr>
-                         <tr>
-                           <td>
-                             Best Value
-                           </td>
-                           <td>
-                             25kg
-                           </td>
-                           <td>
-                             <CheckIcon style={{color:'green'}}  />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td>
-                             <CheckIcon style={{color:'green'}}  />
-                           </td>
-                           <td>
-                             <LocalAtmIcon />
-                           </td>
-                           <td><div>
-                              <div>&#8377;{Math.floor(e.totalFare * 1.12)}{" "}</div>
-                              <div> <button className={styles.vbtn}
-                          onClick={() => {
-                            return (
-                              <Redirect to="http://localhost:3000/checkout" />
-                            );
-                          }}
-                        >
-                          Book
-                        </button></div>
-                             </div></td>
-                         </tr>
-                       </tbody>
-                     </table>
-
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>Services</td>
+                              <td>
+                                <div>
+                                  <LocalMallIcon />
+                                  <div>Checked Bag</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <ShoppingBagIcon />
+                                  <div>Hand Bag</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <FactCheckIcon />
+                                  <div>Seat selection</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <DateRangeIcon />
+                                  <div>Date change</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <MonetizationOnIcon />
+                                  <div>Cancellation</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <LocalDiningIcon />
+                                  <div>Meal</div>
+                                </div>
+                              </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Economy Fare</td>
+                              <td>25kg</td>
+                              <td>
+                                <CheckIcon style={{ color: "green" }} />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <div>
+                                  <div>&#8377;{e.totalFare} </div>
+                                  <div>
+                                    {" "}
+                                    <button
+                                      className={styles.vbtn}
+                                      onClick={() => {
+                                        return (
+                                          <Redirect to="http://localhost:3000/checkout" />
+                                        );
+                                      }}
+                                    >
+                                      Book
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Best Value</td>
+                              <td>25kg</td>
+                              <td>
+                                <CheckIcon style={{ color: "green" }} />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <CheckIcon style={{ color: "green" }} />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <div>
+                                  <div>
+                                    &#8377;{Math.floor(e.totalFare * 1.12)}{" "}
+                                  </div>
+                                  <div>
+                                    {" "}
+                                    <button
+                                      className={styles.vbtn}
+                                      onClick={() => {
+                                        return (
+                                          <Redirect to="http://localhost:3000/checkout" />
+                                        );
+                                      }}
+                                    >
+                                      Book
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div className={styles.AdditionalInformation}>
-                          <div> <LocalAtmIcon /><div>Available on additional charge.</div> </div>
-                          <div><CheckIcon style={{color:'green'}}  /> <div>Included in Fare</div> </div>
-                          <div>--Not Included</div>
-                          
+                        <div>
+                          {" "}
+                          <LocalAtmIcon />
+                          <div>Available on additional charge.</div>{" "}
+                        </div>
+                        <div>
+                          <CheckIcon style={{ color: "green" }} />{" "}
+                          <div>Included in Fare</div>{" "}
+                        </div>
+                        <div>--Not Included</div>
                       </div>
                       <div>
-                      Disclaimer: Benefits shown are as per details shared by the Airline.
+                        Disclaimer: Benefits shown are as per details shared by
+                        the Airline.
                       </div>
                       <div>
-                      * Full refund of Airline cancellation charges up to &#8377; 5,000 (per passanger per sector) on cancellation
+                        * Full refund of Airline cancellation charges up to
+                        &#8377; 5,000 (per passanger per sector) on cancellation
                       </div>
-                    
                     </div>
                   ) : (
                     <div></div>
