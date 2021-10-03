@@ -6,7 +6,7 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import {Navbar} from '../Header/Navbar'
-import {FlightDataContext, flightDetailsContext} from '../../Contexts/FlightDataContext'
+import {FlightDataContext, FlightDetailsContext} from '../../Contexts/FlightDataContext'
 import {Redirect} from "react-router-dom";
 import {v4 as uuid} from 'uuid'
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -17,7 +17,8 @@ function Booking() {
     const {flightContextData} = useContext(FlightDataContext)
     console.log(flightContextData)
 
-    const {handleFlightDetails} = useContext(flightDetailsContext)
+    const {flightDetails,handleFlightDetails} = useContext(FlightDetailsContext)
+    
     const {token} = useContext(AuthContext)
 
     const [showFilters, setShowFilters] = useState(false)
@@ -56,13 +57,15 @@ function Booking() {
       }
   }
 
+
   const handleBook = (flightData)=>{
+    
     handleFlightDetails(flightData)
-      if(token !== ""){
+      // if(token !== ""){
         return <Redirect to={`/checkout`} />
-      } else {
-        return <Redirect to={`/login`}/>
-      }
+      // } else {
+      //   return <Redirect to={`/login`}/>
+      // }
   }
 
   return (
@@ -202,7 +205,7 @@ function Booking() {
                     </div>
                     <div className={styles.fliDate}>
                       <div className={styles.time}>
-                        {e.duration.hours} {e.duration.mins}m
+                        {e.duration.hours}h {e.duration.mins}m
                       </div>
                       <div>{e.nonstop ? "0 Stop" : "1 Stop"}</div>
                     </div>
@@ -221,7 +224,9 @@ function Booking() {
                     </div>
                   </div>
                   {vFair ? ( <div className={styles.viewFair}>
-                        Total fair : {e.totalFare} <button onClick={()=>{handleBook(e)}}>Book</button>
+                        Total fair : {e.totalFare} <button onClick={()=>{
+                          handleBook(e)
+                          }}>Book</button>
                 </div>): <div></div>}
                 </div>
 

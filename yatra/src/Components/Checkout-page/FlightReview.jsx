@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./../Css/Booking.module.css";
 import styled from "styled-components";
-import { FlightDataContext } from "../../Contexts/FlightDataContext";
+import { FlightDataContext, FlightDetailsContext } from "../../Contexts/FlightDataContext";
 // import AirplaneTicketOutlinedIcon from "@mui/icons-material/AirplaneTicketOutlined";
 // import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
 // import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
@@ -26,42 +26,12 @@ const Heading = styled.div`
 `;
 
 function FlightReview() {
-    const { flightContextData, handleFlightContextDateChange } = useContext(FlightDataContext);
-    // const data = flightContextData;
-    // console.log("Checkout flight review data", data, flightContextData);
-    const data = [
-        {
-            origin: "Mumbai",
-            originCode: "BOM-sky",
-            destination: "Pune",
-            destinationCode: "PNQ-sky",
-            airplane: {
-                name: "GoAir",
-                logo: "https://res.cloudinary.com/wego/f_auto,fl_lossy,h_80,w_80,q_auto/v21012019/flights/airlines_square/G8.png",
-            },
-            nonstop: false,
-            departure: {
-                date: "2022-01-24",
-                dateShort: "Monday, 24 January",
-                time: "00:00",
-            },
-            arrival: "19:03",
-            duration: {
-                hours: 19,
-                mins: 3,
-            },
-            travellers: {
-                adults: 2,
-                kids: 0,
-                infants: 0,
-            },
-            travelClass: 2,
-            pricePerHead: 3273,
-            totalFare: 11782,
-        },
-    ];
-  const [vFair,setVFair] = useState(false)
-  const handleVFair = ()=>{
+    const {flightDetails} = useContext(FlightDetailsContext)
+    
+    const data = flightDetails;
+    const [vFair,setVFair] = useState(false)
+
+    const handleVFair = ()=>{
       if(vFair){
           setVFair(false)
         }else{
