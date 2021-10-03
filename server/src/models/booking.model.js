@@ -7,11 +7,7 @@ const { Schema } = mongoose;
 //transaction schema
 const bookingSchema = new Schema({
 
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        required: true
-    },
+    user: { type: Object, required: true },
 
     //booking info
     booking: { type: Object, required: true },

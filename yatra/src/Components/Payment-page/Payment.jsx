@@ -1,7 +1,17 @@
 import styles from "./Payment.module.css";
 import PaymentIcon from "@material-ui/icons/Payment";
 import {Navbar} from "../Header/Navbar"
+import {BookingDetailsContext} from "../../Contexts/BookingDetailsContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { useContext, useState } from "react";
+import { Redirect } from "react-router";
+
 const Payment = () => {
+  const {flightDetails} = useContext(BookingDetailsContext);
+  const {user} = useContext(AuthContext);
+  console.log(user);
+  console.log(flightDetails);
+  const [redirect, setRedirect] = useState(false);
   const arr = [
     {
       image:
@@ -29,6 +39,9 @@ const Payment = () => {
       label: "Congratulations Your Payment is done Now",
     },
   ];
+  if(redirect){
+    return <Redirect to={`/payment/thankyou`}/>
+  }
   return (
     <div className={styles.MainContainer}>
       <div className={styles.headerContainer}>
@@ -102,8 +115,32 @@ const Payment = () => {
             </div>
             <br />
             <div className={styles.PriceAndButton}>
-              <div className={styles.PriceAmount}> &#8377; 5806</div>
-              <button className={styles.PayButton}>Pay Now</button>
+              <div className={styles.PriceAmount}> &#8377; {flightDetails.totalFare}</div>
+              <button className={styles.PayButton} onClick={() => {
+                //TODO: Save booking data in db with user id
+                var axios = require('axios');
+                var data = JSON.stringify({"user":{...user}, "booking":{...flightDetails}});
+                
+                var config = {
+                  method: 'post',
+                  url: 'http://localhost:2345/bookings',
+                  headers: { 
+                    'Content-Type': 'application/json'
+                  },
+                  data : data
+                };
+                
+                axios(config)
+                .then(function (response) {
+                  console.log(response.data);
+                  //redirect to thank you page
+                  setRedirect(true);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+                
+              }}>Pay Now</button>
             </div>
           
 
@@ -115,13 +152,10 @@ const Payment = () => {
             <div className={styles.DetailCard}>
                 Payment Details
                 <ul>
-                    <li><div>Total flight price</div> <div> &#8377; 5,506</div> </li>
-                    <li><div>Convenience fee</div> <div> &#8377; 300</div> </li>
-                    <li><div>You Pay</div> <div> &#8377; 5,806</div> </li>
+                    <li><div>Total flight price</div> <div> &#8377; {flightDetails.totalFare}</div> </li>
+                    <li><div>Convenience fee</div> <div> &#8377; 0</div> </li>
+                    <li><div>You Pay</div> <div> &#8377; {flightDetails.totalFare}</div> </li>
                     <li><div>Earn <span style={{color:'rgb(219, 203, 57)'}}> eCash</span> </div> <div> &#8377; 250</div> </li>
-
-
-
                 </ul>
             </div>
         </div>
