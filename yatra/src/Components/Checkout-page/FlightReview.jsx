@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import styles from "./../Css/Booking.module.css";
 import styled from "styled-components";
-import { FlightDataContext, FlightDetailsContext } from "../../Contexts/FlightDataContext";
+import { FlightDataContext } from "../../Contexts/FlightDataContext";
+// import { FlightDataContext, FlightDetailsContext } from "../../Contexts/FlightDataContext";
 // import AirplaneTicketOutlinedIcon from "@mui/icons-material/AirplaneTicketOutlined";
 // import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
 // import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
@@ -26,8 +27,8 @@ const Heading = styled.div`
 `;
 
 function FlightReview() {
-    const {flightDetails} = useContext(FlightDetailsContext)
-    
+    const {flightDetails} = useContext(FlightDataContext)
+    console.log(flightDetails)
     const data = flightDetails;
     const [vFair,setVFair] = useState(false)
 

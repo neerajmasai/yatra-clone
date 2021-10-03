@@ -1,10 +1,6 @@
 import { createContext, useState } from "react";
 
 export const FlightDataContext = createContext([]);
-export const FlightDetailsContext = createContext({
-  flightDetails:{},
-  handleFlightDetails: ()=>{}
-})
 
 export const FlightDataProvider = ({ children }) => {
   const [flightContextData, setFlightContextData] = useState([]);

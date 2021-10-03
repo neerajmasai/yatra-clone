@@ -6,7 +6,7 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import {Navbar} from '../Header/Navbar'
-import {FlightDataContext, FlightDetailsContext} from '../../Contexts/FlightDataContext'
+import {FlightDataContext} from '../../Contexts/FlightDataContext'
 import {Redirect} from "react-router-dom";
 import {v4 as uuid} from 'uuid'
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -14,10 +14,9 @@ import { FilterMenuDiv } from "./FilterMenu";
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 
 function Booking() {
-    const {flightContextData} = useContext(FlightDataContext)
+    const {flightContextData,flightDetails, handleFlightDetails} = useContext(FlightDataContext)
     console.log(flightContextData)
-
-    const {flightDetails,handleFlightDetails} = useContext(FlightDetailsContext)
+    const [redirectToBookings, setRedirectToBookings] = useState(false);
     
     const {token} = useContext(AuthContext)
 
@@ -61,11 +60,14 @@ function Booking() {
   const handleBook = (flightData)=>{
     
     handleFlightDetails(flightData)
+    setRedirectToBookings(true)
       // if(token !== ""){
-        return <Redirect to={`/checkout`} />
       // } else {
       //   return <Redirect to={`/login`}/>
       // }
+  }
+  if(redirectToBookings){
+    return <Redirect to={`/checkout`}/>
   }
 
   return (
