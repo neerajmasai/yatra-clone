@@ -79,11 +79,17 @@ function SignUpLeft() {
 
     const [email, setEmail] = React.useState("");
     const [pwd, setPwd] = React.useState("");
+    const [firstName, setFirstName] = React.useState("");
+    const [lastName, setLastName] = React.useState("");
+    const [phone, setPhone] = React.useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         axios.post(`http://localhost:2345/users`, {
+            "firstName":firstName,
+            "lastName":lastName,
+            "phone": phone,
             "email": email,
             "password": pwd,
             "token": uuid()
@@ -101,6 +107,21 @@ function SignUpLeft() {
             />
             {/* <div>EMAIL ID</div> */}
             <form onSubmit={(e)=>handleSubmit(e)}>
+                <input
+                    type="text"
+                    placeholder="First Name"
+                    onChange={(e) => setFirstName(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Last Name"
+                    onChange={(e) => setLastName(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Phone"
+                    onChange={(e) => setPhone(e.target.value)}
+                />
                 <input
                     type="email"
                     placeholder="Email ID"

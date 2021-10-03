@@ -6,6 +6,7 @@ import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
 import TrainOutlinedIcon from "@material-ui/icons/TrainOutlined";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const Navbar = () => {
   const visibleIcons = [
@@ -81,7 +82,7 @@ const Navbar = () => {
           <div className={styles.myAccountWrapper}>
             My Account
             <ArrowDropDownIcon className={styles.ArrowDown} />
-            {/* <div className={styles.AccountInfo}>
+            <div className={styles.AccountInfo}>
               <div className={styles.ImageBookingAndRefund}>
                 <div>
                   <AccountCircleOutlinedIcon />
@@ -94,7 +95,7 @@ const Navbar = () => {
                 <button>Sign Up</button>
               </div>
             </div>
-           */}
+          
           </div>
           <div>
             Support <ArrowDropDownIcon className={styles.ArrowDown} />

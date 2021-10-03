@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import axios from 'axios';
 import { v4 as uuid } from "uuid";
 import { fetchUser } from "./FetchUser";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { Redirect } from "react-router";
 
 const LeftStyles = styled.div`
     text-align: center;
@@ -76,35 +78,34 @@ const LeftStyles = styled.div`
     }
 `;
 
-const initUser = {
-    email: "",
-
-}
 
 function SignInLeft() {
-
+    const {handleTokenChange,handleUserGet} = useContext(AuthContext)
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    // const [token, setToken] = React.useState("");
+    const [redirectToHome, setRedirectToHome] = useState(false);
     // const [isAuth, setIsAuth] = React.useState(false);
     // const [isLoading, setIsLoading] = React.useState(false);
     // const [isError, setIsError] = React.useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
-        // setIsLoading(true);
-        // setIsError(false);
-        // fetchUser({ email, password })
-        //     .then((res) => {
-        //         setIsAuth(true);
-        //         console.log(res);
-        //     })
-        //     .catch((err) => {
-        //         setIsError(true);
-        //         console.log("Error is", err);
-        //     });
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.get(`http://localhost:2345/users/query/${email}`).then((res)=>{
+            const data = res.data
+            for(var i = 0; i<data.length; i++){
+                if(data[i].password === password){
+                    handleTokenChange(data[i].token)
+                    handleUserGet(data[i])
+                    setRedirectToHome(true)
+                }
+            }
+        })
     };
+    if(redirectToHome){
+        return <Redirect to="/"/>
+    }
 
     return (
         <LeftStyles>
@@ -118,7 +119,8 @@ function SignInLeft() {
                 <input
                     type="email"
                     placeholder="Email ID"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) =>
+                        setEmail(e.target.value)}
                 />
                 <input
                     type="password"
