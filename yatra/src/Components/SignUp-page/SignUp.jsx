@@ -15,7 +15,6 @@ const SignUpContainer = styled.div`
     width: 680px;
     padding: 20px;
     margin: auto;
-    height: 490px;
 
     @media all and (max-width: 720px) {
         flex-direction: column;
