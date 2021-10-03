@@ -8,45 +8,46 @@ import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import {Navbar} from '../Header/Navbar'
 import {FlightDataContext} from '../../Contexts/FlightDataContext'
 import { Redirect } from "react-router-dom";
-import { FilterMenuDiv } from "./StyledFilterMenu";
-
-
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+import { FilterMenuDiv } from "./FilterMenu";
 
 
 function Booking() {
-    const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
-    const offers = [
-        {
-            offerCode :"faljd",
-            flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
-        },
-        {
-            offerCode :"akdjd",
-            flat:"Flat Rs. 399 OFF per Pax (up to Rs 1,400)"
-        },
-        {
-            offerCode :"afjlf",
-            flat:"Flat Rs. 999 OFF per Pax (up to Rs 3,400)"
-        },
-        {
-            offerCode :"yafaj",
-            flat:"Flat Rs. 229 OFF per Pax (up to Rs 1,00)"
-        },
-        {
-            offerCode :"adkdj",
-            flat:"Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
-        }
-    ];
-  const data = flightContextData;
-  const [vFair,setVFair] = useState(false)
-  const handleVFair = ()=>{
-      if(vFair){
-          setVFair(false)
-        }else{
-            setVFair(true)
-      }
+  const { flightContextData, handleFlightContextDataChange } = useContext(FlightDataContext)
+  const [showFilters, setShowFilters] = useState(false);
+  const [vFair, setVFair] = useState(false);
+  const handleVFair = () => {
+    if (vFair) {
+      setVFair(false)
+    } else {
+      setVFair(true)
+    }
   }
 
+  const offers = [
+    {
+      offerCode: "faljd",
+      flat: "Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
+    },
+    {
+      offerCode: "akdjd",
+      flat: "Flat Rs. 399 OFF per Pax (up to Rs 1,400)"
+    },
+    {
+      offerCode: "afjlf",
+      flat: "Flat Rs. 999 OFF per Pax (up to Rs 3,400)"
+    },
+    {
+      offerCode: "yafaj",
+      flat: "Flat Rs. 229 OFF per Pax (up to Rs 1,00)"
+    },
+    {
+      offerCode: "adkdj",
+      flat: "Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
+    }
+  ];
+  const data = flightContextData;
+  
   return (
     <>
       <Navbar />
@@ -111,18 +112,24 @@ function Booking() {
               <div>Aircraft</div>
               <KeyboardArrowDownOutlinedIcon />
             </div>
-            <div className={styles.filter}>
-              <div style={{ color: "blue" }}>More Filters</div>
-              <KeyboardArrowDownOutlinedIcon />
+            <div className={styles.filter} style={{color: "#3691ca"}} onClick={() => setShowFilters(!showFilters)}>
+              {/* <div style={{ color: "#3691ca" }}> */}
+                {!showFilters
+                  ? <>More Filters <KeyboardArrowDownOutlinedIcon /></>
+                  : <>Hide Filters <KeyboardArrowUpOutlinedIcon /></>
+                }
+              {/* </div> */}
+              
             </div>
           </div>
         </div>
-        <div className="additionalFilers">
-          
-          <FilterMenuDiv />
-            
-        </div>
 
+        {showFilters
+          ? <div className="additionalFilters">
+            <FilterMenuDiv />
+          </div>
+          : null
+        }
         <div className={styles.block}>
           <div className={styles.left_block}>
             {/* <div className={styles.dates}>
@@ -213,7 +220,7 @@ function Booking() {
                 <div className={styles.repeatOffers}>
                   <div className={styles.codeDiv}>{e.offerCode.toUpperCase()}</div>
                   <div style={{ fontSize: "12px" }}>{e.flat}</div>
-                  <div style={{ color: "blue", fontSize: "14px" }}>Copy Code</div>
+                  <div style={{ color: "#3691ca", fontSize: "14px" }}>Copy Code</div>
                 </div>
               )}
             </div>
