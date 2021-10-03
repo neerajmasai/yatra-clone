@@ -8,6 +8,10 @@ import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import {Navbar} from '../Header/Navbar'
 import {FlightDataContext} from '../../Contexts/FlightDataContext'
 import { Redirect } from "react-router-dom";
+import { FilterMenuDiv } from "./StyledFilterMenu";
+
+
+
 
 function Booking() {
     const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
@@ -45,12 +49,12 @@ function Booking() {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className={styles.main_box}>
         <div className={styles.searchAgain}>
           <div className={styles.search_block}>
             <div className={styles.sas}>
-              <AirplaneTicketOutlinedIcon style={{height:"30px",width:"40px"}} />
+              <AirplaneTicketOutlinedIcon style={{ height: "30px", width: "40px" }} />
             </div>
             <div className={styles.sas}>
               <label>From</label>
@@ -108,10 +112,15 @@ function Booking() {
               <KeyboardArrowDownOutlinedIcon />
             </div>
             <div className={styles.filter}>
-              <div style={{color:"blue"}}>More Filters</div>
+              <div style={{ color: "blue" }}>More Filters</div>
               <KeyboardArrowDownOutlinedIcon />
             </div>
           </div>
+        </div>
+        <div className="additionalFilers">
+          
+          <FilterMenuDiv />
+            
         </div>
 
         <div className={styles.block}>
@@ -139,7 +148,7 @@ function Booking() {
               </div>
               <div className="pr-up">
                 <div className={styles.filter}>
-                  PRICE PER ADULT <div> < ArrowUpwardSharpIcon style={{height:"14px"}} /></div>
+                  PRICE PER ADULT <div> < ArrowUpwardSharpIcon style={{ height: "14px" }} /></div>
                 </div>
               </div>
             </div>
@@ -156,7 +165,7 @@ function Booking() {
                         />
                       </div>
                       <div className={styles.fliDate}>
-                        <div style={{fontWeight:"bold"}}>{e.airplane.name}</div>
+                        <div style={{ fontWeight: "bold" }}>{e.airplane.name}</div>
                       </div>
                     </div>
                     <div className={styles.fliDate}>
@@ -174,7 +183,7 @@ function Booking() {
                       <div>{e.nonstop ? "0 Stop" : "1 Stop"}</div>
                     </div>
                     <div className={styles.icFlDate}>
-                      <div style={{fontSize:"19px",fontWeight:"600"}}>
+                      <div style={{ fontSize: "19px", fontWeight: "600" }}>
                         <img
                           width="15px"
                           src="https://cdn-icons-png.flaticon.com/512/3104/3104891.png"
@@ -187,9 +196,9 @@ function Booking() {
                       </div>
                     </div>
                   </div>
-                  {vFair ? ( <div className={styles.viewFair}>
-                        Total fair : {e.totalFare} <button onClick={()=>{return <Redirect to="http://localhost:3000/checkout"/>}}>Book</button>
-                </div>): <div></div>}
+                  {vFair ? (<div className={styles.viewFair}>
+                    Total fair : {e.totalFare} <button onClick={() => { return <Redirect to="http://localhost:3000/checkout" /> }}>Book</button>
+                  </div>) : <div></div>}
                 </div>
 
               ))}
@@ -198,14 +207,14 @@ function Booking() {
           <div className={styles.right_block}>
             {/* array.map */}
             <div className="offers">
-              <div style={{fontWeight:"700",margin:"20px",textAlignLast:"center",position:'relative'}}>Today's Offers</div>
+              <div style={{ fontWeight: "700", margin: "20px", textAlignLast: "center", position: 'relative' }}>Today's Offers</div>
 
-              { offers.map(e =>
-              <div className={styles.repeatOffers}>
-                <div className={styles.codeDiv}>{e.offerCode.toUpperCase()}</div>
-              <div style={{fontSize:"12px"}}>{e.flat}</div>
-              <div style={{color:"blue", fontSize:"14px"}}>Copy Code</div>
-              </div>
+              {offers.map(e =>
+                <div className={styles.repeatOffers}>
+                  <div className={styles.codeDiv}>{e.offerCode.toUpperCase()}</div>
+                  <div style={{ fontSize: "12px" }}>{e.flat}</div>
+                  <div style={{ color: "blue", fontSize: "14px" }}>Copy Code</div>
+                </div>
               )}
             </div>
           </div>
