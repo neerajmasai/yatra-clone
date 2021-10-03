@@ -1,0 +1,207 @@
+
+.AppLogo {
+    height: 39.5px;
+    width: 10%;
+    display: inline-block;
+    background: url(//www.yatra.com/fresco/resources/beetle/images/newIcons/yatra_logo.svg)
+      no-repeat;
+    background-size: 88px 39.5px;
+    margin-left:20%
+  }
+  .headerContainer{
+      background-color: white;
+      margin-bottom: 30px;
+    
+  }
+  .MainContainer{
+      width:100%;
+      margin:0px auto;
+      background:rgb(238,238,238)
+  }
+  .PaymentHeading{
+      
+      max-width:1100%;
+      margin:0px auto;
+      margin-top: 40px;
+      margin-bottom: -10px;
+      font-family: sans-serif;
+      /* display:flex; */
+      color: rgb(93, 92, 92);
+      font-size: 14px;
+      font-weight: 400;
+      
+  }
+  .MainBox{
+      width:60%;
+      margin:0px auto;
+      /* background:red; */
+      /* height:100px; */
+      display:flex;
+      flex-direction: row;
+      row-gap: 10px;
+      font-family: sans-serif;
+      
+      
+  }
+  .LeftBox{
+      width:75%;
+      background:white !important;
+      /* height:100px; */
+      margin-right: 2%;
+      display:flex;
+      color:gray
+      
+  }
+  .RightBox{
+      /* border:1px solid black; */
+      padding:30px 45px ;
+      width:100%;
+      height:350px;
+      /* font-size: 10px; */
+
+  }
+  .PaymentProcedures{
+      display:grid;
+      grid-template-columns: 33% 33% 33%;
+      width:100%
+  }
+  .RightSide{
+      width: 23%;
+      /* background:green !important; */
+      text-align: center;
+  }
+  .PaymentMethods{
+      width:35%;
+      /* border:1px solid black */
+      margin-left: -40px
+  }
+  .PaymentMethods  li{
+    padding:10% 10%;
+    border: 1px solid rgb(211, 206, 206);
+    border-bottom: none;
+    list-style-type:none;
+    background-color:rgb(56,63,69);
+    color:white;
+    font-size: 10px;
+    display: flex;
+    justify-content:space  ;
+    align-items: center;
+  }
+  .PaymentMethods  li div{
+      margin-left: 5px;
+  }
+  
+  .PaymentMethods  li:hover{
+      cursor: pointer;
+      /* color:#ea2330; */
+      background-color: #F34F4F!important;
+      border-left: 3px solid #ea2330;
+  }
+  .PaymentMethods  li:nth-last-child(1){
+    border-bottom: 1px solid grey;
+  }
+  .PaymentIcon{
+    margin-top: 15px;
+   
+  }
+  .IconResize{
+    font-size:10px;
+    width:5px
+  }
+  .EachItemDiv{
+      width:100%;
+      /* border:1px solid black; */
+      text-align: center;
+      padding-left:10px;
+      font-size: 12px;
+      padding-bottom: 50px;
+      
+      
+  }
+  .EachItemDiv img{
+      width:30%
+  }
+  .inputBoxContainer{
+      width:50%;
+      padding:20px;
+      font-size: 13px;
+  }
+  .inputBox{
+    width: 95%;
+    font-size: 16px;
+    height: 30px;
+    margin-bottom: 20px;
+    color: #333;
+    text-indent: 10px;
+    border-radius: 5px;
+    border: 0;
+    border-top: 1px solid #d1d1d1;
+    box-shadow: 0 2px 2px #cdcdcd;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .PayButton{
+    width: 50%;
+    height: 40px;
+    color: rgb(255,255,255);
+    background-color: #ea2330;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+  }
+  .PriceAndButton{
+    display:inline-flex;
+    width:50%;
+    padding-left:50px
+  }
+  .PriceAmount{
+      font-size: 20px;
+      margin:auto;
+      margin-left: 0px;
+      color:black
+  }
+  .PlaneText{
+    margin-top: 30px;
+    font-size: 12px;
+  }
+  .PlaneText .Terms{
+      color:blue
+  }
+
+  .DetailCard{
+      width:90%;
+    background: white ;
+    padding:5px 0px
+  }
+  .DetailCard li{
+      list-style-type: none;
+      display:flex;
+      justify-content:space-between;
+      margin-left: -20px;
+      color:gray;
+      font-size: 12px;
+      padding:4px 0px;
+      width: 90%; 
+      
+  }
+  .DetailCard li div{
+      margin:auto;
+  }
+  .ProfileIcon{
+      color:#ea2330;
+      
+  }
+  .BookingList{
+      display:inline-flex;
+      justify-content:space-between;
+      padding:10px 5px;
+      background:rgb(247,247,247);
+      width: 110%;
+      margin-left: -8%;
+      
+  }
+  .BookingListItem{
+      font-size:10px;
+      color:grey;
+      padding-right: 5px;
+  }
