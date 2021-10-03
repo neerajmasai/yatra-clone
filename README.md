@@ -1,35 +1,50 @@
-# yatra-clone
-A clone of Yatra.com 
+# YATRA.COM
 
+This is a clone of *www.yatra.com* website. It is an Indian online travel agency and travel search engine.
 
-Yatra.com is an Indian online travel agency and travel search engine. It is based in Gurugram, Haryana
+<hr/>
 
-Team Members
+### Team (4 Members)
 
--> Neeraj Malwal
+- [Neeraj Malwal](https://github.com/neerajmasai)
+- [Jai Yadav](https://github.com/jai6013)
+- [Sunny Dhanwani](https://github.com/SunnyDhanwani)
+- [Shariq Ansari](https://github.com/ansariShariq)
 
--> Jai Yadav
+<hr/>
 
--> Sunny Dhanwani
+### Tech-stack
 
--> Shariq Ansari
+- Front-end: React.js <br/>
+- Back-end: Node.js, Express.js, MongoDB <br/>
+- Libraries: Material UI <br/>
 
-Teck stack Used:
+<hr/>
 
-HTML
+### Webpages along with its features
 
-CSS 
+- Homepage
+  - Search Real Time Flight Data
+  - Data required by user: flight origin, flight destination, date, number of travellers, type of flight class
+  - Get search history
 
-REACT JS
+- Signup Page
+  - Unique users sign up
 
-MONGODB
+- Booking Page
+  - Show required flight details
+  - Sort according to prices
+  - Filter by price, airlines and type of flight
 
-GIT
+- Checkout Page
+  - Review selected flights
+  - Enter the travellers details
+  - Apply promocode
 
-We were assigned to clone This amazing travelling website within 5 days.
+- Payment Page
+  - Get payment according to selected number of travellers and selected flight
+  
+- Dashboard Page
+  - Get whole booking history of user
 
-Pages are Landing Homepage, Booking Page,Payment Page, Dashboard, Checkout Page,SignUp Page, LogIn Page.
-Due to short Period of Time we only Completed Entire System of Flight booking we Used Flight Api to Get Regarding flight Details, Users Can search flight Just by giving initial, Final Position, Date etc.
-
-
-After that User can choose any Airline's Flight Based on Departure Time, Price and facilities  
+This project was done within 5 days. Here, we have used Material UI for icons and widgets. We have worked great on the sytling part of the website and made it very similar to the original one. Currently, we were able to encorporate the flight booking part of the website. The realtime data was fetched using Skyscanner and Trip advisor API. All the users related data is stored in an online database that is built using MongoDB. Our future scope is to improvise the current website and include hotel booking.
