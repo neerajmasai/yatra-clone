@@ -18,6 +18,7 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { BookingDetailsContext } from "../../Contexts/BookingDetailsContext";
+import { FilterMenuDiv } from "./FilterMenu";
 
 function Booking() {
 
@@ -166,7 +167,7 @@ function Booking() {
                 </div>
               </div>
             </div> */}
-
+            <h3>Showing Results for Departure Date {data[0].departure.dateShort}</h3>
             <div className={styles.sort}>
               <div>SortBy</div>
               <div className={styles.dad}>
