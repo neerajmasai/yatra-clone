@@ -13,9 +13,11 @@ import { FilterMenuDiv } from "./FilterMenu";
 
 
 function Booking() {
-  const { flightContextData, handleFlightContextDataChange } = useContext(FlightDataContext)
+  const { flightContextData, handleFlightContextDataChange } = useContext(FlightDataContext);
+  const [data, setData] = useState(flightContextData);
   const [showFilters, setShowFilters] = useState(false);
   const [vFair, setVFair] = useState(false);
+
   const handleVFair = () => {
     if (vFair) {
       setVFair(false)
@@ -46,8 +48,7 @@ function Booking() {
       flat: "Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
     }
   ];
-  const data = flightContextData;
-  
+
   return (
     <>
       <Navbar />
@@ -154,7 +155,14 @@ function Booking() {
                 <div>Duration</div>
               </div>
               <div className="pr-up">
-                <div className={styles.filter}>
+                <div className={styles.filter} onClick={() => {
+                  //Sort data 
+                         
+                  let tempData = data;
+                  tempData.sort((a,b) => a.pricePerHead - b.pricePerHead);
+                  setData([...tempData]);
+
+                }}>
                   PRICE PER ADULT <div> < ArrowUpwardSharpIcon style={{ height: "14px" }} /></div>
                 </div>
               </div>
