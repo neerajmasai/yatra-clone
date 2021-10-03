@@ -4,15 +4,22 @@ Yatra.com is an Indian online travel agency and travel search engine. It is base
 
 Team Members
 -> Neeraj Malwal
+
 -> Jai Yadav
+
 -> Sunny Dhanwani
+
 -> Shariq Ansari
 
 Teck stack Used:
 HTML
+
 CSS 
+
 REACT JS
+
 MONGODB
+
 GIT
 
 We were assigned to clone This amazing travelling website within 5 days.
