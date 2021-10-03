@@ -235,11 +235,6 @@ function Booking() {
                       </div>
                     </div>
                   </div>
-                  {vFair ? ( <div className={styles.viewFair}>
-                        Total fair : {e.totalFare} <button onClick={()=>{
-                          handleBook(e)
-                          }}>Book</button>
-                </div>): <div></div>}
                   {vFair ? (
                     <div className={styles.viewFair}>
                       <div>
@@ -310,11 +305,9 @@ function Booking() {
                                     {" "}
                                     <button
                                       className={styles.vbtn}
-                                      onClick={() => {
-                                        return (
-                                          <Redirect to="http://localhost:3000/checkout" />
-                                        );
-                                      }}
+                                      onClick={()=>{
+                                        handleBook(e)
+                                        }}
                                     >
                                       Book
                                     </button>
@@ -349,11 +342,9 @@ function Booking() {
                                     {" "}
                                     <button
                                       className={styles.vbtn}
-                                      onClick={() => {
-                                        return (
-                                          <Redirect to="http://localhost:3000/checkout" />
-                                        );
-                                      }}
+                                      onClick={()=>{
+                                        handleBook(e)
+                                        }}
                                     >
                                       Book
                                     </button>
