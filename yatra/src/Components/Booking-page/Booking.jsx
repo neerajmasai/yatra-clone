@@ -166,7 +166,7 @@ function Booking() {
                 </div>
               </div>
             </div> */}
-
+            <h3>Showing Results for Departure Date {data[0].departure.dateShort}</h3>
             <div className={styles.sort}>
               <div>SortBy</div>
               <div className={styles.dad}>
