@@ -4,7 +4,9 @@ import { Booking } from "../Components/Booking-page/Booking";
 import { SignIn } from "../Components/SignIn-page/SignIn";
 import { SignUp } from "../Components/SignUp-page/SignUp";
 import { Payment } from "../Components/Payment-page/Payment";
-import {Dashboard} from "../Components/Dashboard-page/Dashboard";
+import { Dashboard } from "../Components/Dashboard-page/Dashboard";
+import { Checkout } from "../Components/Checkout-page/Checkout-main";
+
 export const Routes = ()=>{
     return (
         <>
@@ -17,17 +19,19 @@ export const Routes = ()=>{
             <Route path="/signup">
                 <SignUp />
             </Route>
-
+            <Route path='/signin'>
+                <SignIn />
+            </Route>
             <Route path="/payment">
                 <Payment />
             </Route>
             <Route path="/dashboard">
                 <Dashboard />
             </Route>
-            <Route path='/signin'>
-                <SignIn />
-
+            <Route path="/checkout">
+                <Checkout />
             </Route>
+
         </>
     );
 }

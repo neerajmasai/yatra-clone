@@ -29,6 +29,11 @@ const TravellerDiv = styled.div`
     padding: 20px 30px;
     margin-right: 20px;
 
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
     div {
         /* background-color: lightskyblue; */
         margin: 5px;
@@ -129,9 +134,11 @@ function TravellerDetails() {
                     </div>
                     <PassengerValues />
                 </div>
-                <Link to="/payment">
-                    <button className="Proceed">Proceed To Payment</button>
-                </Link>
+                <button className="Proceed">
+                    <Link to="/payment">
+                        Proceed To Payment
+                    </Link>
+                </button>
             </TravellerDiv>
         </>
     );

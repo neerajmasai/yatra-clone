@@ -164,12 +164,12 @@ function Leftsection() {
                 Depart From
 
               </div>
-              <div style={{ width: "50%", textAlign: "left", fontSize: "12px", color: "#3b3b3b", marginTop: "5px", marginBottom: "8px"}}>
-                  <div>
-                    {
-                      departureInfo.airportName ? `${departureInfo.airportName}` : "Chhatrapati Shivaji (BOM)"
-                    }
-                  </div>
+              <div style={{ width: "50%", textAlign: "left", fontSize: "12px", color: "#3b3b3b", marginTop: "5px", marginBottom: "8px" }}>
+                <div>
+                  {
+                    departureInfo.airportName ? `${departureInfo.airportName}` : "Chhatrapati Shivaji (BOM)"
+                  }
+                </div>
               </div>
               <div style={{ fontSize: "18px", fontWeight: "700" }}>
                 
@@ -183,7 +183,7 @@ function Leftsection() {
                 onChange={handleFlightDataChange}
                 onKeyUp={(e) => {
                   //on enter show results
-                  if(e.keyCode === 13){
+                  if (e.keyCode === 13) {
                     getDeparturePlaceData();
                   }
                 }}
@@ -202,10 +202,10 @@ function Leftsection() {
             </div>
             <div className={styles.goi}>
               <div style={{ fontSize: "14px", color: "#A19F9D" }}>Going To</div>
-              <div style={{ width: "50%", textAlign: "right", fontSize: "12px", color: "#3b3b3b" , marginTop: "5px", marginBottom: "8px"}}>
-                  {
-                    destinationInfo.airportName ? `${destinationInfo.airportName}` : "Lohegaon (PNQ)"
-                  }
+              <div style={{ width: "50%", textAlign: "right", fontSize: "12px", color: "#3b3b3b", marginTop: "5px", marginBottom: "8px" }}>
+                {
+                  destinationInfo.airportName ? `${destinationInfo.airportName}` : "Lohegaon (PNQ)"
+                }
               </div>
               <div style={{ fontSize: "18px", fontWeight: "700" }}>
                 {
@@ -217,7 +217,7 @@ function Leftsection() {
                 onChange={handleFlightDataChange}
                 onKeyUp={(e) => {
                   //on enter show results
-                  if(e.keyCode === 13){
+                  if (e.keyCode === 13) {
                     getDestinationPlaceData();
                   }
                 }}
@@ -267,32 +267,35 @@ function Leftsection() {
                   <div
                     className={styles.boxCount}
                     onClick={() => {
-                      let increment = countAdult + 1;
-                      setAdultCount(countAdult + 1);
-                      setFlightBookingData({ ...flightBookingData, travellers: {
-                        adults: increment,
-                        kids: countChild,
-                        infants: countInfant,
-                      }});
+                      let decrement = countAdult - 1;
+                      setAdultCount(countAdult - 1);
+                      setFlightBookingData({
+                        ...flightBookingData, travellers: {
+                          adults: decrement,
+                          kids: countChild,
+                          infants: countInfant,
+                        }
+                      });
                     }}
                   >
-                    +
+                    -
                   </div>
-
                   <div className={styles.boxCount}>{countAdult}</div>
                   <div
                     className={styles.boxCount}
                     onClick={() => {
-                      let decrement = countAdult - 1;
-                      setAdultCount(countAdult - 1);
-                      setFlightBookingData({ ...flightBookingData, travellers: {
-                        adults: decrement,
-                        kids: countChild,
-                        infants: countInfant,
-                      }});
+                      let increment = countAdult + 1;
+                      setAdultCount(countAdult + 1);
+                      setFlightBookingData({
+                        ...flightBookingData, travellers: {
+                          adults: increment,
+                          kids: countChild,
+                          infants: countInfant,
+                        }
+                      });
                     }}
                   >
-                    -
+                    +
                   </div>
                 </div>
               </div>
@@ -304,31 +307,35 @@ function Leftsection() {
                   <div
                     className={styles.boxCount}
                     onClick={() => {
-                      let increment = countChild + 1;
-                      setChildCount(countChild + 1);
-                      setFlightBookingData({ ...flightBookingData, travellers: {
-                        adults: countAdult,
-                        kids: increment,
-                        infants: countInfant,
-                      }});
+                      let decrement = countChild - 1;
+                      setChildCount(countChild - 1);
+                      setFlightBookingData({
+                        ...flightBookingData, travellers: {
+                          adults: countAdult,
+                          kids: decrement,
+                          infants: countInfant,
+                        }
+                      });
                     }}
                   >
-                    +
+                    -
                   </div>
                   <div className={styles.boxCount}>{countChild}</div>
                   <div
                     className={styles.boxCount}
                     onClick={() => {
-                      let decrement = countChild - 1;
-                      setChildCount(countChild - 1);
-                      setFlightBookingData({ ...flightBookingData, travellers: {
-                        adults: countAdult,
-                        kids: decrement,
-                        infants: countInfant,
-                      }});
+                      let increment = countChild + 1;
+                      setChildCount(countChild + 1);
+                      setFlightBookingData({
+                        ...flightBookingData, travellers: {
+                          adults: countAdult,
+                          kids: increment,
+                          infants: countInfant,
+                        }
+                      });
                     }}
                   >
-                    -
+                    +
                   </div>
                 </div>
               </div>
@@ -337,34 +344,39 @@ function Leftsection() {
               <div className={styles.infPar}>
                 <div className={styles.c}>Infant(Below 2)</div>
                 <div className={styles.infant}>
-                  <div
-                    className={styles.boxCount}
-                    onClick={() => {
-                      let increment = countInfant + 1;
-                      setInfantCount(countInfant + 1);
-                      setFlightBookingData({ ...flightBookingData, travellers: {
-                        adults: countAdult,
-                        kids: countChild,
-                        infants: increment,
-                      }});
-                    }}
-                  >
-                    +
-                  </div>
-                  <div className={styles.boxCount}>{countInfant}</div>
+                  
                   <div
                     className={styles.boxCount}
                     onClick={() => {
                       let decrement = countInfant - 1;
                       setInfantCount(countInfant - 1);
-                      setFlightBookingData({ ...flightBookingData, travellers: {
-                        adults: countAdult,
-                        kids: countChild,
-                        infants: decrement,
-                      }});
+                      setFlightBookingData({
+                        ...flightBookingData, travellers: {
+                          adults: countAdult,
+                          kids: countChild,
+                          infants: decrement,
+                        }
+                      });
                     }}
                   >
                     -
+                  </div>
+                  <div className={styles.boxCount}>{countInfant}</div>
+                  <div
+                    className={styles.boxCount}
+                    onClick={() => {
+                      let increment = countInfant + 1;
+                      setInfantCount(countInfant + 1);
+                      setFlightBookingData({
+                        ...flightBookingData, travellers: {
+                          adults: countAdult,
+                          kids: countChild,
+                          infants: increment,
+                        }
+                      });
+                    }}
+                  >
+                    +
                   </div>
                 </div>
               </div>
@@ -372,16 +384,16 @@ function Leftsection() {
           </div>
           <div className={styles.radio}>
             <input type="radio" id="economy" name="travel_class" value="Economy" onClick={() => {
-                setFlightBookingData({ ...flightBookingData, travelClass: 0});
-            }}/>
-            <label for="economy">Economy</label><br/>
+              setFlightBookingData({ ...flightBookingData, travelClass: 0 });
+            }} />
+            <label for="economy">Economy</label><br />
             <input type="radio" id="premium_economy" name="travel_class" value="Premium" onClick={() => {
-                setFlightBookingData({ ...flightBookingData, travelClass: 1});
-            }}/>
-            <label for="premium_economy">Premium Economy</label><br/>
+              setFlightBookingData({ ...flightBookingData, travelClass: 1 });
+            }} />
+            <label for="premium_economy">Premium Economy</label><br />
             <input type="radio" id="business" name="travel_class" value="Business" onClick={() => {
-                setFlightBookingData({ ...flightBookingData, travelClass: 2});
-            }}/>
+              setFlightBookingData({ ...flightBookingData, travelClass: 2 });
+            }} />
             <label for="business">Business</label>
           </div>
           <div className={styles.nonStop}>
