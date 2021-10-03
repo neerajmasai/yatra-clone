@@ -6,11 +6,18 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
 import {Navbar} from '../Header/Navbar'
-import {FlightDataContext} from '../../Contexts/FlightDataContext'
-import { Redirect } from "react-router-dom";
+import {FlightDataContext, flightDetailsContext} from '../../Contexts/FlightDataContext'
+import {Redirect} from "react-router-dom";
+import {v4 as uuid} from 'uuid'
+import { AuthContext } from "../../Contexts/AuthContext";
 
 function Booking() {
-    const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
+    const {flightContextData} = useContext(FlightDataContext)
+    console.log(flightContextData)
+
+    const {handleFlightDetails} = useContext(flightDetailsContext)
+    const {token} = useContext(AuthContext)
+
     const offers = [
         {
             offerCode :"faljd",
@@ -33,13 +40,25 @@ function Booking() {
             flat:"Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
         }
     ];
+
   const data = flightContextData;
+
   const [vFair,setVFair] = useState(false)
+
   const handleVFair = ()=>{
       if(vFair){
           setVFair(false)
         }else{
             setVFair(true)
+      }
+  }
+
+  const handleBook = (flightData)=>{
+    handleFlightDetails(flightData)
+      if(token !== ""){
+        return <Redirect to={`/checkout`} />
+      } else {
+        return <Redirect to={`/login`}/>
       }
   }
 
@@ -54,7 +73,7 @@ function Booking() {
             </div>
             <div className={styles.sas}>
               <label>From</label>
-              <input type="text" name="originplace" placeholder="Mumbai(BOM)" />
+              <input type="text" name="originplace" placeholder={data[0].origin.toUpperCase()} />
             </div>
             <div className={styles.sas}>
               <CompareArrowsOutlinedIcon />
@@ -64,7 +83,7 @@ function Booking() {
               <input
                 type="text"
                 name="destinationplace"
-                placeholder="New Delhi(DEL)"
+                placeholder={data[0].destination.toUpperCase()}
               />
             </div>
             <div className={styles.sas}>
@@ -72,7 +91,7 @@ function Booking() {
               <input
                 type="text"
                 name="travelling-class"
-                placeholder="1 Traveller Economy"
+                placeholder= {`${data[0].travellers.adults +data[0].travellers.infants + data[0].travellers.kids } Traveller Economy`}
               />
             </div>
             <div className={styles.sas}>
@@ -145,7 +164,7 @@ function Booking() {
             </div>
             <div className={styles.flightmain}>
               {data.map((e) => (
-                <div className={styles.flights}>
+                <div key={uuid()} className={styles.flights}>
                   <div className={styles.up_section}>
                     <div className={styles.icFlDate}>
                       <div>
@@ -188,7 +207,7 @@ function Booking() {
                     </div>
                   </div>
                   {vFair ? ( <div className={styles.viewFair}>
-                        Total fair : {e.totalFare} <button onClick={()=>{return <Redirect to="http://localhost:3000/checkout"/>}}>Book</button>
+                        Total fair : {e.totalFare} <button onClick={()=>{handleBook(e)}}>Book</button>
                 </div>): <div></div>}
                 </div>
 
