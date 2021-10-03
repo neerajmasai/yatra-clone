@@ -1,3 +1,14 @@
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import CheckIcon from "@mui/icons-material/Check";
+import { Navbar } from "../Header/Navbar";
+import { FlightDataContext } from "../../Contexts/FlightDataContext";
+import { Redirect } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import styles from "../Css/Booking.module.css";
 import AirplaneTicketOutlinedIcon from "@mui/icons-material/AirplaneTicketOutlined";
@@ -5,58 +16,78 @@ import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ArrowUpwardSharpIcon from "@mui/icons-material/ArrowUpwardSharp";
-import {Navbar} from '../Header/Navbar'
-import {FlightDataContext} from '../../Contexts/FlightDataContext'
-import { Redirect } from "react-router-dom";
-import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import { FilterMenuDiv } from "./FilterMenu";
-
+import { AuthContext } from "../../Contexts/AuthContext";
+import { BookingDetailsContext } from "../../Contexts/BookingDetailsContext";
 
 function Booking() {
-  const { flightContextData, handleFlightContextDataChange } = useContext(FlightDataContext);
-  const [data, setData] = useState(flightContextData);
-  const [showFilters, setShowFilters] = useState(false);
-  const [vFair, setVFair] = useState(false);
 
-  const handleVFair = () => {
-    if (vFair) {
-      setVFair(false)
-    } else {
-      setVFair(true)
-    }
+    const {flightContextData} = useContext(FlightDataContext)
+    const {flightDetails,handleFlightDetails} = useContext(BookingDetailsContext)
+    const [data, setData] = useState(flightContextData);
+    const [redirectToBookings, setRedirectToBookings] = useState(false);
+    
+    const {token} = useContext(AuthContext)
+
+    const [showFilters, setShowFilters] = useState(false)
+    const offers = [
+        {
+            offerCode :"faljd",
+            flat:"Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
+        },
+        {
+            offerCode :"akdjd",
+            flat:"Flat Rs. 399 OFF per Pax (up to Rs 1,400)"
+        },
+        {
+            offerCode :"afjlf",
+            flat:"Flat Rs. 999 OFF per Pax (up to Rs 3,400)"
+        },
+        {
+            offerCode :"yafaj",
+            flat:"Flat Rs. 229 OFF per Pax (up to Rs 1,00)"
+        },
+        {
+            offerCode :"adkdj",
+            flat:"Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
+        }
+    ];
+
+
+  const [vFair,setVFair] = useState(false)
+
+  const handleVFair = ()=>{
+      if(vFair){
+          setVFair(false)
+        }else{
+            setVFair(true)
+      }
   }
 
-  const offers = [
-    {
-      offerCode: "faljd",
-      flat: "Flat Rs. 799 OFF per Pax (up to Rs 2,400)"
-    },
-    {
-      offerCode: "akdjd",
-      flat: "Flat Rs. 399 OFF per Pax (up to Rs 1,400)"
-    },
-    {
-      offerCode: "afjlf",
-      flat: "Flat Rs. 999 OFF per Pax (up to Rs 3,400)"
-    },
-    {
-      offerCode: "yafaj",
-      flat: "Flat Rs. 229 OFF per Pax (up to Rs 1,00)"
-    },
-    {
-      offerCode: "adkdj",
-      flat: "Flat Rs. 899 OFF per Pax (up to Rs 1,100)"
-    }
-  ];
+
+  const handleBook = (flightData)=>{
+    console.log(flightData)
+    handleFlightDetails(flightData)
+    setRedirectToBookings(true)
+      // if(token !== ""){
+      // } else {
+      //   return <Redirect to={`/login`}/>
+      // }
+  }
+  if(redirectToBookings){
+    return <Redirect to={`/checkout`}/>
+  }
 
   return (
     <>
       <Navbar />
+
       <div className={styles.main_box}>
         <div className={styles.searchAgain}>
           <div className={styles.search_block}>
             <div className={styles.sas}>
-              <AirplaneTicketOutlinedIcon style={{ height: "30px", width: "40px" }} />
+              <AirplaneTicketOutlinedIcon
+                style={{ height: "30px", width: "40px" }}
+              />
             </div>
             <div className={styles.sas}>
               <label>From</label>
@@ -82,7 +113,7 @@ function Booking() {
               />
             </div>
             <div className={styles.sas}>
-              <button className={styles.btn}>Search Again</button>
+              <button className={styles.vbtn}>Search Again</button>
             </div>
           </div>
         </div>
@@ -113,24 +144,13 @@ function Booking() {
               <div>Aircraft</div>
               <KeyboardArrowDownOutlinedIcon />
             </div>
-            <div className={styles.filter} style={{color: "#3691ca"}} onClick={() => setShowFilters(!showFilters)}>
-              {/* <div style={{ color: "#3691ca" }}> */}
-                {!showFilters
-                  ? <>More Filters <KeyboardArrowDownOutlinedIcon /></>
-                  : <>Hide Filters <KeyboardArrowUpOutlinedIcon /></>
-                }
-              {/* </div> */}
-              
+            <div className={styles.filter}>
+              <div style={{ color: "blue" }}>More Filters</div>
+              <KeyboardArrowDownOutlinedIcon />
             </div>
           </div>
         </div>
 
-        {showFilters
-          ? <div className="additionalFilters">
-            <FilterMenuDiv />
-          </div>
-          : null
-        }
         <div className={styles.block}>
           <div className={styles.left_block}>
             {/* <div className={styles.dates}>
@@ -180,7 +200,9 @@ function Booking() {
                         />
                       </div>
                       <div className={styles.fliDate}>
-                        <div style={{ fontWeight: "bold" }}>{e.airplane.name}</div>
+                        <div style={{ fontWeight: "bold" }}>
+                          {e.airplane.name}
+                        </div>
                       </div>
                     </div>
                     <div className={styles.fliDate}>
@@ -193,7 +215,7 @@ function Booking() {
                     </div>
                     <div className={styles.fliDate}>
                       <div className={styles.time}>
-                        {e.duration.hours} {e.duration.mins}m
+                        {e.duration.hours}h {e.duration.mins}m
                       </div>
                       <div>{e.nonstop ? "0 Stop" : "1 Stop"}</div>
                     </div>
@@ -207,30 +229,194 @@ function Booking() {
                         {e.pricePerHead}
                       </div>
                       <div>
-                        <button onClick={handleVFair} className={styles.vbtn}>View Fares</button>
+                        <button className={styles.vbtn} onClick={handleVFair}>
+                          View Fares
+                        </button>
                       </div>
                     </div>
                   </div>
-                  {vFair ? (<div className={styles.viewFair}>
-                    Total fair : {e.totalFare} <button onClick={() => { return <Redirect to="http://localhost:3000/checkout" /> }}>Book</button>
-                  </div>) : <div></div>}
+                  {vFair ? ( <div className={styles.viewFair}>
+                        Total fair : {e.totalFare} <button onClick={()=>{
+                          handleBook(e)
+                          }}>Book</button>
+                </div>): <div></div>}
+                  {vFair ? (
+                    <div className={styles.viewFair}>
+                      <div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>Services</td>
+                              <td>
+                                <div>
+                                  <LocalMallIcon />
+                                  <div>Checked Bag</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <ShoppingBagIcon />
+                                  <div>Hand Bag</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <FactCheckIcon />
+                                  <div>Seat selection</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <DateRangeIcon />
+                                  <div>Date change</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <MonetizationOnIcon />
+                                  <div>Cancellation</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div>
+                                  <LocalDiningIcon />
+                                  <div>Meal</div>
+                                </div>
+                              </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Economy Fare</td>
+                              <td>25kg</td>
+                              <td>
+                                <CheckIcon style={{ color: "green" }} />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <div>
+                                  <div>&#8377;{e.totalFare} </div>
+                                  <div>
+                                    {" "}
+                                    <button
+                                      className={styles.vbtn}
+                                      onClick={() => {
+                                        return (
+                                          <Redirect to="http://localhost:3000/checkout" />
+                                        );
+                                      }}
+                                    >
+                                      Book
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Best Value</td>
+                              <td>25kg</td>
+                              <td>
+                                <CheckIcon style={{ color: "green" }} />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <CheckIcon style={{ color: "green" }} />
+                              </td>
+                              <td>
+                                <LocalAtmIcon />
+                              </td>
+                              <td>
+                                <div>
+                                  <div>
+                                    &#8377;{Math.floor(e.totalFare * 1.12)}{" "}
+                                  </div>
+                                  <div>
+                                    {" "}
+                                    <button
+                                      className={styles.vbtn}
+                                      onClick={() => {
+                                        return (
+                                          <Redirect to="http://localhost:3000/checkout" />
+                                        );
+                                      }}
+                                    >
+                                      Book
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className={styles.AdditionalInformation}>
+                        <div>
+                          {" "}
+                          <LocalAtmIcon />
+                          <div>Available on additional charge.</div>{" "}
+                        </div>
+                        <div>
+                          <CheckIcon style={{ color: "green" }} />{" "}
+                          <div>Included in Fare</div>{" "}
+                        </div>
+                        <div>--Not Included</div>
+                      </div>
+                      <div>
+                        Disclaimer: Benefits shown are as per details shared by
+                        the Airline.
+                      </div>
+                      <div>
+                        * Full refund of Airline cancellation charges up to
+                        &#8377; 5,000 (per passanger per sector) on cancellation
+                      </div>
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
-
               ))}
             </div>
           </div>
           <div className={styles.right_block}>
             {/* array.map */}
             <div className="offers">
-              <div style={{ fontWeight: "700", margin: "20px", textAlignLast: "center", position: 'relative' }}>Today's Offers</div>
+              <div
+                style={{
+                  fontWeight: "700",
+                  margin: "20px",
+                  textAlignLast: "center",
+                  position: "relative",
+                }}
+              >
+                Today's Offers
+              </div>
 
-              {offers.map(e =>
+              {offers.map((e) => (
                 <div className={styles.repeatOffers}>
-                  <div className={styles.codeDiv}>{e.offerCode.toUpperCase()}</div>
+                  <div className={styles.codeDiv}>
+                    {e.offerCode.toUpperCase()}
+                  </div>
                   <div style={{ fontSize: "12px" }}>{e.flat}</div>
-                  <div style={{ color: "#3691ca", fontSize: "14px" }}>Copy Code</div>
+                  <div style={{ color: "blue", fontSize: "14px" }}>
+                    Copy Code
+                  </div>
                 </div>
-              )}
+              ))}
             </div>
           </div>
         </div>

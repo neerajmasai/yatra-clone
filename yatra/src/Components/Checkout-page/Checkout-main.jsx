@@ -23,8 +23,6 @@ const CheckoutDiv = styled.div`
 `;
 
 function Checkout() {
-    const {flightContextData, handleFlightContextDataChange} = React.useContext(FlightDataContext)
-    console.log(flightContextData)
     return (
         <div style={{maxWidth: "1240px", margin: "auto", padding: "20px", backgroundColor: "#E3E2E3"}}>
             <Navbar />

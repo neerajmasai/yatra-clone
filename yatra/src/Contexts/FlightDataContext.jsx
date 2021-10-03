@@ -7,8 +7,12 @@ export const FlightDataProvider = ({ children }) => {
   const handleFlightContextDataChange = (data) => {
     setFlightContextData(data);
   };
+  const [flightDetails, setFlightDetails] = useState({});
+  const handleFlightDetails = (d) => {
+    setFlightDetails(d);
+  };
   return (
-    <FlightDataContext.Provider value={{flightContextData, handleFlightContextDataChange}}>
+    <FlightDataContext.Provider value={{flightContextData, handleFlightContextDataChange,flightDetails,handleFlightDetails}}>
       {children}
     </FlightDataContext.Provider>
   );

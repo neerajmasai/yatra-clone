@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     setToken(token);
   };
   return (
-    <AuthContext.Provider value={handleTokenChange}>
+    <AuthContext.Provider value={{token,handleTokenChange}}>
       {children}
     </AuthContext.Provider>
   );
