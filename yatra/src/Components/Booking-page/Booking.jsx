@@ -11,7 +11,6 @@ import { Redirect } from "react-router-dom";
 
 function Booking() {
     const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
-    console.log(flightContextData)
     const offers = [
         {
             offerCode :"faljd",
