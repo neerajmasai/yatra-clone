@@ -153,6 +153,42 @@
 .viewFair{
     margin: 20px;;
     text-align: center;
+    font-size: 12px;
+}
+
+.viewFair table td{
+    border: .05px solid rgb(192, 188, 188);
+    border-left: none;
+    border-top: none;
+    border-radius: 5px 5px ;
+    width:10%;
+    padding: 5px;
+
+    color:rgb(56,63,69);
+    font-family: sans-serif;
+}
+.viewFair table td:nth-child(1)
+{
+    border:none;
+    
+}
+.viewFair table td:last-child{
+    border:none;
+
+    font-size: 15px;
+}
+
+
+.AdditionalInformation{
+    display: flex;
+    justify-content:space-between;
+    width: 70%;
+    /* margin-top: 20px; */
+    margin:10px auto;
+}
+.AdditionalInformation >div{
+    align-items:center;
+    display: inline-flex;
 }
 .smallBox{
     padding: 5px;
@@ -178,6 +214,10 @@
     color: #f34f4f;
     border:1px solid #f34f4f;
     font-weight: 300;
+}
+.vbtn:hover{
+    background-color:#f34f4f;
+    color: white;
 }
 .right_block{
     width: 20%;

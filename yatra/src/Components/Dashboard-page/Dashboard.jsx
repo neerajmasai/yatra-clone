@@ -10,7 +10,11 @@ import MoneyIcon from "@mui/icons-material/Money";
 import PersonIcon from "@mui/icons-material/Person";
 import CreateIcon from "@mui/icons-material/Create";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import {useContext} from 'react'
+// import {FlightDataContext} from '../../Contexts/FlightDataContext'
 const Dashboard = () => {
+    // const {flightContextData, handleFlightContextDataChange} = useContext(FlightDataContext)
+  
   const arr = [
     "ALL",
     "FLIGHTS",
@@ -22,6 +26,7 @@ const Dashboard = () => {
     "HOLIDAYS",
     "MONUMENTS",
   ];
+
   return (
     <div>
       <div className={styles.MainContainer}>

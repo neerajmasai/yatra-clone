@@ -1,6 +1,4 @@
-body{
-  
-}
+
 .AppLogo {
     height: 39.5px;
     width: 10%;
@@ -31,7 +29,7 @@ body{
       color: rgb(93, 92, 92);
       font-size: 14px;
       font-weight: 400;
-      text-align: center;
+      
   }
   .MainBox{
       width:60%;
