@@ -21,6 +21,49 @@ This is a clone of *www.yatra.com* website. It is an Indian online travel agency
 
 <hr/>
 
+### Pre-requisites
+
+- Clone the repo: 
+```
+git clone <repo_link>
+```
+
+- Create branches: 
+```
+git checkout -b <branch_name>
+```
+
+- Adding the files: 
+```
+git add filename
+```
+
+- Commiting the changes: 
+```
+git commit -m "description"
+```
+
+- Pushing the commits: 
+```
+git push origin <branch_name>
+```
+
+- Pulling the changes:
+```
+git pull origin <branch_name>
+```
+
+- Dependencies used:
+    - cors: ^2.8.5,
+    - express: ^4.17.1,
+    - mongoose: ^5.11.15,
+    - nodemon: ^2.0.12,
+    - react: ^17.0.2,
+    - react-dom: ^^17.0.2,
+    - react-scripts: "4.0.3,
+   
+<hr />
+
 ### Webpages along with its features
 
 - Homepage
