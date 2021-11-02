@@ -386,7 +386,7 @@ function Booking() {
           </div>
           <div className={styles.right_block}>
             {/* array.map */}
-            <div className="offers">
+            {/* <div className="offers">
               <div
                 style={{
                   fontWeight: "700",
@@ -409,7 +409,7 @@ function Booking() {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
