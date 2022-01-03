@@ -1,4 +1,4 @@
-# YATRA.COM
+# [YATRAA](https://yatraa.netlify.app/)
 
 This is a clone of *www.yatra.com* website. It is an Indian online travel agency and travel search engine.
 This project was done within 5 days. Here, we have used Material UI for icons and widgets. We have worked great on the sytling part of the website and made it very similar to the original one. Currently, we were able to encorporate the flight booking part of the website. The realtime data was fetched using Skyscanner and Trip advisor API. All the users related data is stored in an online database that is built using MongoDB. Our future scope is to improvise the current website and include hotel booking.
